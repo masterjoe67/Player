@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D313A0CE-2138-49C8-8F63-3EB84D08A3F3}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="VisualGDBPackageDefinitions">
+    <ToolchainID>com.visualgdb.arm-eabi</ToolchainID>
+    <ToolchainVersion>7.2.0/8.0.1/r3</ToolchainVersion>
+    <BSP_ID>com.sysprogs.arm.stm32</BSP_ID>
+    <BSP_VERSION>2019.06</BSP_VERSION>
+  </PropertyGroup>
+  <ImportGroup Label="VisualGDBFindComponents">
+    <Import Project="$(LOCALAPPDATA)\VisualGDB\FindComponents.props" />
+  </ImportGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeIncludeSearchPath>.;$(TOOLCHAIN_ROOT)\arm-eabi\include\c++\7.2.0;$(TOOLCHAIN_ROOT)\arm-eabi\include\c++\7.2.0\arm-eabi\thumb\cortex_m4;$(TOOLCHAIN_ROOT)\arm-eabi\include\c++\7.2.0\backward;$(TOOLCHAIN_ROOT)\lib\gcc\arm-eabi\7.2.0\include;$(TOOLCHAIN_ROOT)\lib\gcc\arm-eabi\7.2.0\include-fixed;$(TOOLCHAIN_ROOT)\arm-eabi\sys-include;$(TOOLCHAIN_ROOT)\arm-eabi\include;Inc;lib\cmsis\device\inc;lib\cmsis\inc;lib\driver\inc;lib\stm32f4-tm\inc;lib\fatfs;lib\usb_msc_host\inc;lib\helix\pub;lib\helix\real;lib\fatfs\drivers;lib\ILI9341;lib\Display;lib\Icons;lib\Images;lib\lcdButton;lib\xpt2046-touch;lib\JPEGDecoder\src;lib\Icons;lib\Icons\cell;lib\apps;lib\ILI9341\fonts;lib\utility;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeForcedIncludes>$(ProjectDir)\gcc_Debug.h;$(VISUALGDB_DIR)\gcc_compat.h;$(BSP_ROOT)\stm32_compat.h;$(NMakeForcedIncludes)</NMakeForcedIncludes>
+    <NMakeBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /build "$(ProjectPath)" "/solution:$(SolutionPath)"  "/config:$(Configuration)" "/platform:$(Platform)"</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /clean "$(ProjectPath)" "/solution:$(SolutionPath)"  "/config:$(Configuration)" "/platform:$(Platform)"</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /rebuild "$(ProjectPath)" "/solution:$(SolutionPath)"  "/config:$(Configuration)" "/platform:$(Platform)"</NMakeReBuildCommandLine>
+    <NMakeOutput>$(ProjectDir)Player-Debug.vgdbsettings</NMakeOutput>
+    <IncludePath />
+    <ReferencePath />
+    <LibraryPath />
+    <NMakePreprocessorDefinitions>__VisualGDB_CFG_Debug;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeIncludeSearchPath>.;$(TOOLCHAIN_ROOT)\arm-eabi\include\c++\7.2.0;$(TOOLCHAIN_ROOT)\arm-eabi\include\c++\7.2.0\arm-eabi\thumb\cortex_m4;$(TOOLCHAIN_ROOT)\arm-eabi\include\c++\7.2.0\backward;$(TOOLCHAIN_ROOT)\lib\gcc\arm-eabi\7.2.0\include;$(TOOLCHAIN_ROOT)\lib\gcc\arm-eabi\7.2.0\include-fixed;$(TOOLCHAIN_ROOT)\arm-eabi\sys-include;$(TOOLCHAIN_ROOT)\arm-eabi\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeForcedIncludes>$(ProjectDir)\gcc_Release.h;$(VISUALGDB_DIR)\gcc_compat.h;$(BSP_ROOT)\stm32_compat.h;$(NMakeForcedIncludes)</NMakeForcedIncludes>
+    <NMakePreprocessorDefinitions>__VisualGDB_CFG_Release;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /build "$(ProjectPath)" "/solution:$(SolutionPath)"  "/config:$(Configuration)" "/platform:$(Platform)"</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /clean "$(ProjectPath)" "/solution:$(SolutionPath)"  "/config:$(Configuration)" "/platform:$(Platform)"</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /rebuild "$(ProjectPath)" "/solution:$(SolutionPath)"  "/config:$(Configuration)" "/platform:$(Platform)"</NMakeReBuildCommandLine>
+    <NMakeOutput>$(ProjectDir)Player-Release.vgdbsettings</NMakeOutput>
+    <IncludePath />
+    <ReferencePath />
+    <LibraryPath />
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ClCompile Include="lib\apps\calc.c" />
+    <ClCompile Include="lib\apps\player.c" />
+    <ClCompile Include="lib\Display\display.c" />
+    <ClCompile Include="lib\driver\src\misc.c" />
+    <ClCompile Include="lib\driver\src\stm32f4xx_dma.c" />
+    <ClCompile Include="lib\driver\src\stm32f4xx_exti.c" />
+    <ClCompile Include="lib\driver\src\stm32f4xx_gpio.c" />
+    <ClCompile Include="lib\driver\src\stm32f4xx_rcc.c" />
+    <ClCompile Include="lib\driver\src\stm32f4xx_sdio.c" />
+    <ClCompile Include="lib\driver\src\stm32f4xx_spi.c" />
+    <ClCompile Include="lib\driver\src\stm32f4xx_syscfg.c" />
+    <ClCompile Include="lib\driver\src\stm32f4xx_tim.c" />
+    <ClCompile Include="lib\driver\src\stm32f4xx_usart.c" />
+    <ClCompile Include="lib\fatfs\diskio.c" />
+    <ClCompile Include="lib\fatfs\drivers\fatfs_sd.c" />
+    <ClCompile Include="lib\fatfs\drivers\fatfs_sd_sdio.c" />
+    <ClCompile Include="lib\fatfs\drivers\fatfs_usb.c" />
+    <ClCompile Include="lib\fatfs\ff.c" />
+    <ClCompile Include="lib\helix\mp3dec.c" />
+    <ClCompile Include="lib\helix\mp3tabs.c" />
+    <ClCompile Include="lib\helix\real\bitstream.c" />
+    <ClCompile Include="lib\helix\real\buffers.c" />
+    <ClCompile Include="lib\helix\real\dct32.c" />
+    <ClCompile Include="lib\helix\real\dequant.c" />
+    <ClCompile Include="lib\helix\real\dqchan.c" />
+    <ClCompile Include="lib\helix\real\huffman.c" />
+    <ClCompile Include="lib\helix\real\hufftabs.c" />
+    <ClCompile Include="lib\helix\real\imdct.c" />
+    <ClCompile Include="lib\helix\real\polyphase.c" />
+    <ClCompile Include="lib\helix\real\scalfact.c" />
+    <ClCompile Include="lib\helix\real\stproc.c" />
+    <ClCompile Include="lib\helix\real\subband.c" />
+    <ClCompile Include="lib\helix\real\trigtabs_fixpt.c" />
+    <ClCompile Include="lib\Icons\battery_icons.c" />
+    <ClCompile Include="lib\Icons\icon.c" />
+    <ClCompile Include="lib\ILI9341\dev_spi.c" />
+    <ClCompile Include="lib\ILI9341\fonts\FreeMono12pt7b.c" />
+    <ClCompile Include="lib\ILI9341\fonts\FreeMono24pt7b.c" />
+    <ClCompile Include="lib\ILI9341\fonts\FreeMono9pt7b.c" />
+    <ClCompile Include="lib\ILI9341\fonts\FreeMonoBold18pt7b.c" />
+    <ClCompile Include="lib\ILI9341\ili9341_core.c" />
+    <ClCompile Include="lib\ILI9341\ili9341_graph.c" />
+    <ClCompile Include="lib\ILI9341\ili9341_spi.c" />
+    <ClCompile Include="lib\ILI9341\ili9341_text.c" />
+    <ClCompile Include="lib\JPEGDecoder\src\JPEGDecoder.cpp" />
+    <ClCompile Include="lib\JPEGDecoder\src\jpg_interface.cpp" />
+    <ClCompile Include="lib\JPEGDecoder\src\picojpeg.c" />
+    <ClCompile Include="lib\lcdButton\lcdButton.c" />
+    <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_delay.c" />
+    <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_disco.c" />
+    <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_fatfs.c" />
+    <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_lis302dl_lis3dsh.c" />
+    <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_spi.c" />
+    <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_timer_properties.c" />
+    <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_usart.c" />
+    <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_usb_msc_host.c" />
+    <ClCompile Include="lib\usb_msc_host\src\usbh_core.c" />
+    <ClCompile Include="lib\usb_msc_host\src\usbh_hcs.c" />
+    <ClCompile Include="lib\usb_msc_host\src\usbh_ioreq.c" />
+    <ClCompile Include="lib\usb_msc_host\src\usbh_msc_bot.c" />
+    <ClCompile Include="lib\usb_msc_host\src\usbh_msc_core.c" />
+    <ClCompile Include="lib\usb_msc_host\src\usbh_msc_scsi.c" />
+    <ClCompile Include="lib\usb_msc_host\src\usbh_stdreq.c" />
+    <ClCompile Include="lib\usb_msc_host\src\usbh_usr.c" />
+    <ClCompile Include="lib\usb_msc_host\src\usb_bsp.c" />
+    <ClCompile Include="lib\usb_msc_host\src\usb_core.c" />
+    <ClCompile Include="lib\usb_msc_host\src\usb_hcd.c" />
+    <ClCompile Include="lib\usb_msc_host\src\usb_hcd_int.c" />
+    <ClCompile Include="lib\utility\utility.c" />
+    <ClCompile Include="lib\xpt2046-touch\xpt2046.c" />
+    <ClCompile Include="Src\Audio.c" />
+    <ClCompile Include="Src\cwMemory.c" />
+    <ClCompile Include="Src\cwMP3.c" />
+    <ClCompile Include="Src\cwSoundFile.c" />
+    <ClCompile Include="Src\cwWave.c" />
+    <ClCompile Include="Src\main.c" />
+    <ClCompile Include="Src\stm32f4xx_it.c" />
+    <ClCompile Include="Src\syscalls.c" />
+    <ClCompile Include="Src\system_stm32f4xx.c" />
+    <ClInclude Include="Inc\attributes.h" />
+    <ClInclude Include="Inc\Audio.h" />
+    <ClInclude Include="Inc\cwMemory.h" />
+    <ClInclude Include="Inc\cwMP3.h" />
+    <ClInclude Include="Inc\cwSoundFile.h" />
+    <ClInclude Include="Inc\cwWave.h" />
+    <ClInclude Include="Inc\defines.h" />
+    <ClInclude Include="Inc\Sinwave.h" />
+    <ClInclude Include="Inc\stm32f4xx_conf.h" />
+    <ClInclude Include="Inc\stm32f4xx_it.h" />
+    <ClInclude Include="Inc\system_stm32f4xx.h" />
+    <ClInclude Include="lib\apps\calc.h" />
+    <ClInclude Include="lib\apps\player.h" />
+    <ClInclude Include="lib\cmsis\device\inc\stm32f4xx.h" />
+    <ClInclude Include="lib\Display\display.h" />
+    <ClInclude Include="lib\driver\inc\misc.h" />
+    <ClInclude Include="lib\driver\inc\stm32f4xx_dma.h" />
+    <ClInclude Include="lib\driver\inc\stm32f4xx_gpio.h" />
+    <ClInclude Include="lib\driver\inc\stm32f4xx_rcc.h" />
+    <ClInclude Include="lib\driver\inc\stm32f4xx_sdio.h" />
+    <ClInclude Include="lib\driver\inc\stm32f4xx_spi.h" />
+    <ClInclude Include="lib\driver\inc\stm32f4xx_tim.h" />
+    <ClInclude Include="lib\driver\inc\stm32f4xx_usart.h" />
+    <ClInclude Include="lib\fatfs\drivers\fatfs_sd.h" />
+    <ClInclude Include="lib\fatfs\drivers\fatfs_sd_sdio.h" />
+    <ClInclude Include="lib\fatfs\drivers\fatfs_usb.h" />
+    <ClInclude Include="lib\fatfs\ff.h" />
+    <ClInclude Include="lib\helix\pub\mp3dec.h" />
+    <ClInclude Include="lib\Icons\battery_icons.h" />
+    <ClInclude Include="lib\Icons\cell\Apps-Calc-icon.h" />
+    <ClInclude Include="lib\Icons\cell\Apps-Clock-icon.h" />
+    <ClInclude Include="lib\Icons\cell\Apps-Gallery-icon.h" />
+    <ClInclude Include="lib\Icons\cell\Apps-Gnome-Subtitles-icon.h" />
+    <ClInclude Include="lib\Icons\cell\Apps-Rubrica-icon.h" />
+    <ClInclude Include="lib\Icons\cell\Apps-Phone-icon.h" />
+    <ClInclude Include="lib\Icons\cell\Apps-Player-Audio-C-icon.h" />
+    <ClInclude Include="lib\Icons\cell\Apps-Preferences-Desktop-C-icon.h" />
+    <ClInclude Include="lib\Icons\cell\Apps-Subtitleeditor-icon.h" />
+    <ClInclude Include="lib\Icons\circ_audio0.h" />
+    <ClInclude Include="lib\Icons\circ_audio100.h" />
+    <ClInclude Include="lib\Icons\circ_menu.h" />
+    <ClInclude Include="lib\Icons\circ_music.h" />
+    <ClInclude Include="lib\Icons\circ_mute.h" />
+    <ClInclude Include="lib\Icons\circ_next.h" />
+    <ClInclude Include="lib\Icons\circ_pause.h" />
+    <ClInclude Include="lib\Icons\circ_play.h" />
+    <ClInclude Include="lib\Icons\circ_prev.h" />
+    <ClInclude Include="lib\Icons\icon.h" />
+    <ClInclude Include="lib\Icons\icons_included.h" />
+    <ClInclude Include="lib\Icons\retmenu.h" />
+    <ClInclude Include="lib\ILI9341\characters.h" />
+    <ClInclude Include="lib\ILI9341\dev_spi.h" />
+    <ClInclude Include="lib\ILI9341\fonts\fonts.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeMono12pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeMono18pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeMono24pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeMono9pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoBold12pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoBold18pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoBold24pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoBold9pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoBoldOblique12pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoBoldOblique18pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoBoldOblique24pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoBoldOblique9pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoOblique12pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoOblique18pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoOblique24pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoOblique9pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSans12pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSans18pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSans24pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSans9pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansBold12pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansBold18pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansBold24pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansBold9pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansBoldOblique12pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansBoldOblique18pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansBoldOblique24pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansBoldOblique9pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansOblique12pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansOblique18pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansOblique24pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansOblique9pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerif12pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerif18pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerif24pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerif9pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifBold12pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifBold18pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifBold24pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifBold9pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifBoldItalic12pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifBoldItalic18pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifBoldItalic24pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifBoldItalic9pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifItalic12pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifItalic18pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifItalic24pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifItalic9pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\glcdfont.h" />
+    <ClInclude Include="lib\ILI9341\fonts\Org_01.h" />
+    <ClInclude Include="lib\ILI9341\fonts\Picopixel.h" />
+    <ClInclude Include="lib\ILI9341\fonts\Tiny3x3a2pt7b.h" />
+    <ClInclude Include="lib\ILI9341\fonts\TomThumb.h" />
+    <ClInclude Include="lib\ILI9341\ili9341_commands.h" />
+    <ClInclude Include="lib\ILI9341\ili9341_core.h" />
+    <ClInclude Include="lib\ILI9341\ili9341_graph.h" />
+    <ClInclude Include="lib\ILI9341\ili9341_spi.h" />
+    <ClInclude Include="lib\ILI9341\ili9341_text.h" />
+    <ClInclude Include="lib\Images\captain.h" />
+    <ClInclude Include="lib\Images\ironman.h" />
+    <ClInclude Include="lib\Images\spiderman.h" />
+    <ClInclude Include="lib\Images\transistor.h" />
+    <ClInclude Include="lib\JPEGDecoder\src\JPEGDecoder.h" />
+    <ClInclude Include="lib\JPEGDecoder\src\jpg_interface.h" />
+    <ClInclude Include="lib\JPEGDecoder\src\picojpeg.h" />
+    <ClInclude Include="lib\JPEGDecoder\src\User_Config.h" />
+    <ClInclude Include="lib\lcdButton\lcdButton.h" />
+    <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_delay.h" />
+    <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_disco.h" />
+    <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_fatfs.h" />
+    <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_lis302dl_lis3dsh.h" />
+    <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_spi.h" />
+    <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_timer_properties.h" />
+    <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_usart.h" />
+    <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_usb_msc_host.h" />
+    <ClInclude Include="lib\usb_msc_host\inc\usb_core.h" />
+    <ClInclude Include="lib\utility\utility.h" />
+    <ClInclude Include="lib\xpt2046-touch\xpt2046.h" />
+    <None Include="stm32.mak" />
+    <ClInclude Include="Inc\main.h" />
+    <None Include="Makefile" />
+    <None Include="debug.mak" />
+    <None Include="release.mak" />
+    <None Include="Player-Debug.vgdbsettings" />
+    <None Include="Player-Release.vgdbsettings" />
+    <None Include="stm32.xml" />
+    <None Include="stm32_flash.ld" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,2 @@
+Debug/battery_icons.o: lib/Icons/battery_icons.c \
+ lib/Icons/battery_icons.h

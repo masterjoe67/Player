@@ -1,0 +1,26 @@
+Debug/tm_stm32f4_spi.o: lib/stm32f4-tm/src/tm_stm32f4_spi.c \
+ lib/stm32f4-tm/inc/tm_stm32f4_spi.h lib/cmsis/device/inc/stm32f4xx.h \
+ lib/cmsis/inc/core_cm4.h \
+ c:\sysgcc\arm-eabi\lib\gcc\arm-eabi\7.2.0\include\stdint.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\stdint.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\_default_types.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\features.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\_newlib_version.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\_intsup.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\_stdint.h \
+ lib/cmsis/inc/core_cmInstr.h lib/cmsis/inc/core_cmFunc.h \
+ lib/cmsis/inc/core_cm4_simd.h lib/cmsis/device/inc/system_stm32f4xx.h \
+ Inc/stm32f4xx_conf.h lib/driver/inc/stm32f4xx_adc.h \
+ lib/driver/inc/stm32f4xx_crc.h lib/driver/inc/stm32f4xx_dbgmcu.h \
+ lib/driver/inc/stm32f4xx_dma.h lib/driver/inc/stm32f4xx_exti.h \
+ lib/driver/inc/stm32f4xx_flash.h lib/driver/inc/stm32f4xx_gpio.h \
+ lib/driver/inc/stm32f4xx_i2c.h lib/driver/inc/stm32f4xx_iwdg.h \
+ lib/driver/inc/stm32f4xx_pwr.h lib/driver/inc/stm32f4xx_rcc.h \
+ lib/driver/inc/stm32f4xx_rtc.h lib/driver/inc/stm32f4xx_sdio.h \
+ lib/driver/inc/stm32f4xx_spi.h lib/driver/inc/stm32f4xx_syscfg.h \
+ lib/driver/inc/stm32f4xx_tim.h lib/driver/inc/stm32f4xx_usart.h \
+ lib/driver/inc/stm32f4xx_wwdg.h lib/driver/inc/misc.h \
+ lib/driver/inc/stm32f4xx_cryp.h lib/driver/inc/stm32f4xx_hash.h \
+ lib/driver/inc/stm32f4xx_rng.h lib/driver/inc/stm32f4xx_can.h \
+ lib/driver/inc/stm32f4xx_dac.h lib/driver/inc/stm32f4xx_dcmi.h \
+ lib/driver/inc/stm32f4xx_fsmc.h Inc/defines.h

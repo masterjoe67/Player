@@ -1,0 +1,804 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source files">
+      <UniqueIdentifier>{115924b8-f61c-4b3f-ba7f-d6002a13b97a}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header files">
+      <UniqueIdentifier>{03848112-2510-405c-86d0-444d1b7c5e4a}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource files">
+      <UniqueIdentifier>{d12168a8-11bd-45ea-ad92-5cc9781e5f7f}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Source files\Src">
+      <UniqueIdentifier>{727eb5a9-83f9-47d3-852f-afa56177697b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\Device-specific files">
+      <UniqueIdentifier>{9f369826-6a97-48b4-9c2f-c9741763b789}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\Inc">
+      <UniqueIdentifier>{54df1a20-5355-4977-a3d9-c8272ed70f65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\Src">
+      <UniqueIdentifier>{a431529e-bf38-49a6-8a3c-d391307aae17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Make files">
+      <UniqueIdentifier>{e8dc5cb7-17b9-4703-a37b-1242ff6bb08d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VisualGDB settings">
+      <UniqueIdentifier>{9f5af55a-9711-44aa-b2b9-1bd66f3c5b7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\lib">
+      <UniqueIdentifier>{f9bf8ca2-2100-4e8e-a863-392b36d0dd7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\lib\cmsis">
+      <UniqueIdentifier>{0d856dee-7348-4fcc-882b-e62bae7d05f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\lib\cmsis\device">
+      <UniqueIdentifier>{ae71d583-d3a2-4a0c-806c-11f6d0b33844}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\lib\tm_stm32f4">
+      <UniqueIdentifier>{a3d2c89b-850c-4a23-9760-caf7d7d8ef62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\lib">
+      <UniqueIdentifier>{fb784621-b4ab-477e-95f8-1a330ad8ad19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\lib\cmsis">
+      <UniqueIdentifier>{462cf61e-bcce-46ad-ba03-200f752b8187}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\lib\cmsis\device">
+      <UniqueIdentifier>{94aa5f6c-dc64-47d9-802c-7e7f4c2534aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\lib\tm_stm32f4">
+      <UniqueIdentifier>{9d6b531b-206b-4974-8e7a-62a1ca1bf05b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\lib\driver">
+      <UniqueIdentifier>{fc1e22ed-002d-421e-b801-06c56b0590da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\lib\driver">
+      <UniqueIdentifier>{274636b0-193a-4237-9457-499897b9356f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\lib\helix">
+      <UniqueIdentifier>{18341464-6d3d-4018-81fa-5fc383ccbff6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\lib\helix">
+      <UniqueIdentifier>{9bf1779e-ae35-4a73-bef6-3b6de1d67db7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\lib\usb_msc_host">
+      <UniqueIdentifier>{66f4e2c0-090f-4290-b703-1c22921f91b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\lib\usb_msc_host">
+      <UniqueIdentifier>{3edec59b-694f-4633-86e4-1e5994c89cb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\lib\fatfs">
+      <UniqueIdentifier>{01bffee7-076b-411b-80ce-ff3ed3a94864}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\lib\fatfs">
+      <UniqueIdentifier>{5819b0b5-2268-49af-a3e3-de143ee6cec0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\lib\ILI9341">
+      <UniqueIdentifier>{a628ea43-9e07-4fbd-b478-d389abd8cf73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\lib\ILI9341">
+      <UniqueIdentifier>{5002e7c0-1c5a-429c-963b-9accb556ab1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\lib\display">
+      <UniqueIdentifier>{300c9a3b-a338-45dc-8808-4cb505f52baa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\lib\display">
+      <UniqueIdentifier>{aec404bc-66f9-41b9-9c96-e951a4341644}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\lib\icons">
+      <UniqueIdentifier>{3fd71d92-88dd-4057-a73e-3c396ec3c066}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\lib\images">
+      <UniqueIdentifier>{52e352aa-0309-4620-bbd7-f3257e326c97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\lib\LCD_button">
+      <UniqueIdentifier>{2f75eb97-c03b-4233-aac5-689006c07f9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\lib\LCD_button">
+      <UniqueIdentifier>{9e612975-0475-4448-b41e-60d60c6f33f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\lib\xpt2046-touch">
+      <UniqueIdentifier>{b274843e-fe0a-4d7f-a84f-d0af8cde81ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\lib\xpt2046-touch">
+      <UniqueIdentifier>{dbd4231e-c536-4541-af78-a939824d30e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\lib\JPEGDecoder">
+      <UniqueIdentifier>{9180e92d-d246-4aaa-b3fd-059709976c05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\lib\JPEGDecoder">
+      <UniqueIdentifier>{94bfd892-1b6a-4ca4-8271-ac0a5215bbf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\lib\icons\cell">
+      <UniqueIdentifier>{c0f7c518-8286-46c3-a0bc-16b039a47b62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\lib\app">
+      <UniqueIdentifier>{58596a5a-f2b7-46a5-aea3-f4e7679e12ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\lib\app">
+      <UniqueIdentifier>{7872dd84-3aa6-47b1-b5a1-41fe848b0e72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\lib\ILI9341\fonts">
+      <UniqueIdentifier>{18e6097f-98cd-42da-9821-669d4aa846da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\lib\ILI9341\fonts">
+      <UniqueIdentifier>{d02e5444-85e8-4009-937a-5c1a92884097}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\lib\utility">
+      <UniqueIdentifier>{bca3c47e-9f54-43bd-8807-d17d58a6cf42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\lib\utility">
+      <UniqueIdentifier>{8dd2f38b-a9e4-452c-9b90-aa25c0f583d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\lib\icons">
+      <UniqueIdentifier>{60ff5f47-9c95-45a6-aa46-f5541cd80d5c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
+    <None Include="stm32_flash.ld">
+      <Filter>Source files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Src\main.c">
+      <Filter>Source files\Src</Filter>
+    </ClCompile>
+    <None Include="stm32.mak">
+      <Filter>Source files\Device-specific files</Filter>
+    </None>
+    <ClInclude Include="Inc\main.h">
+      <Filter>Header files\Inc</Filter>
+    </ClInclude>
+    <None Include="debug.mak">
+      <Filter>Make files</Filter>
+    </None>
+    <None Include="release.mak">
+      <Filter>Make files</Filter>
+    </None>
+    <None Include="Player-Debug.vgdbsettings">
+      <Filter>VisualGDB settings</Filter>
+    </None>
+    <None Include="Player-Release.vgdbsettings">
+      <Filter>VisualGDB settings</Filter>
+    </None>
+    <None Include="stm32.xml">
+      <Filter>VisualGDB settings</Filter>
+    </None>
+    <ClCompile Include="Src\stm32f4xx_it.c">
+      <Filter>Source files\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\syscalls.c">
+      <Filter>Source files\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\system_stm32f4xx.c">
+      <Filter>Source files\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_delay.c">
+      <Filter>Source files\lib\tm_stm32f4</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_disco.c">
+      <Filter>Source files\lib\tm_stm32f4</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_fatfs.c">
+      <Filter>Source files\lib\tm_stm32f4</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_lis302dl_lis3dsh.c">
+      <Filter>Source files\lib\tm_stm32f4</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_spi.c">
+      <Filter>Source files\lib\tm_stm32f4</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_timer_properties.c">
+      <Filter>Source files\lib\tm_stm32f4</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_usart.c">
+      <Filter>Source files\lib\tm_stm32f4</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_usb_msc_host.c">
+      <Filter>Source files\lib\tm_stm32f4</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\driver\src\stm32f4xx_tim.c">
+      <Filter>Source files\lib\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\driver\src\stm32f4xx_usart.c">
+      <Filter>Source files\lib\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\cwSoundFile.c">
+      <Filter>Source files\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Audio.c">
+      <Filter>Source files\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\cwMP3.c">
+      <Filter>Source files\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\helix\mp3dec.c">
+      <Filter>Source files\lib\helix</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\helix\mp3tabs.c">
+      <Filter>Source files\lib\helix</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\cwWave.c">
+      <Filter>Source files\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\cwMemory.c">
+      <Filter>Source files\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\helix\real\bitstream.c">
+      <Filter>Header files\lib\helix</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\helix\real\buffers.c">
+      <Filter>Header files\lib\helix</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\helix\real\dct32.c">
+      <Filter>Header files\lib\helix</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\helix\real\dequant.c">
+      <Filter>Header files\lib\helix</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\helix\real\dqchan.c">
+      <Filter>Header files\lib\helix</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\helix\real\huffman.c">
+      <Filter>Header files\lib\helix</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\helix\real\hufftabs.c">
+      <Filter>Header files\lib\helix</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\helix\real\imdct.c">
+      <Filter>Header files\lib\helix</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\helix\real\polyphase.c">
+      <Filter>Header files\lib\helix</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\helix\real\scalfact.c">
+      <Filter>Header files\lib\helix</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\helix\real\stproc.c">
+      <Filter>Header files\lib\helix</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\helix\real\subband.c">
+      <Filter>Header files\lib\helix</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\helix\real\trigtabs_fixpt.c">
+      <Filter>Header files\lib\helix</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\usb_msc_host\src\usb_core.c">
+      <Filter>Source files\lib\usb_msc_host</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\usb_msc_host\src\usb_bsp.c">
+      <Filter>Source files\lib\usb_msc_host</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\usb_msc_host\src\usb_hcd.c">
+      <Filter>Source files\lib\usb_msc_host</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\usb_msc_host\src\usb_hcd_int.c">
+      <Filter>Source files\lib\usb_msc_host</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\usb_msc_host\src\usbh_core.c">
+      <Filter>Source files\lib\usb_msc_host</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\usb_msc_host\src\usbh_hcs.c">
+      <Filter>Source files\lib\usb_msc_host</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\usb_msc_host\src\usbh_ioreq.c">
+      <Filter>Source files\lib\usb_msc_host</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\usb_msc_host\src\usbh_msc_bot.c">
+      <Filter>Source files\lib\usb_msc_host</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\usb_msc_host\src\usbh_msc_core.c">
+      <Filter>Source files\lib\usb_msc_host</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\usb_msc_host\src\usbh_msc_scsi.c">
+      <Filter>Source files\lib\usb_msc_host</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\usb_msc_host\src\usbh_stdreq.c">
+      <Filter>Source files\lib\usb_msc_host</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\usb_msc_host\src\usbh_usr.c">
+      <Filter>Source files\lib\usb_msc_host</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\driver\src\stm32f4xx_rcc.c">
+      <Filter>Source files\lib\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\driver\src\stm32f4xx_gpio.c">
+      <Filter>Source files\lib\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\fatfs\ff.c">
+      <Filter>Source files\lib\fatfs</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\fatfs\diskio.c">
+      <Filter>Source files\lib\fatfs</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\fatfs\drivers\fatfs_sd.c">
+      <Filter>Source files\lib\fatfs</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\fatfs\drivers\fatfs_sd_sdio.c">
+      <Filter>Source files\lib\fatfs</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\fatfs\drivers\fatfs_usb.c">
+      <Filter>Source files\lib\fatfs</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\driver\src\stm32f4xx_sdio.c">
+      <Filter>Source files\lib\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\driver\src\stm32f4xx_dma.c">
+      <Filter>Source files\lib\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\driver\src\misc.c">
+      <Filter>Source files\lib\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\driver\src\stm32f4xx_spi.c">
+      <Filter>Source files\lib\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Display\display.c">
+      <Filter>Source files\lib\display</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\lcdButton\lcdButton.c">
+      <Filter>Source files\lib\LCD_button</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\xpt2046-touch\xpt2046.c">
+      <Filter>Source files\lib\xpt2046-touch</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\driver\src\stm32f4xx_exti.c">
+      <Filter>Source files\lib\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\driver\src\stm32f4xx_syscfg.c">
+      <Filter>Source files\lib\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\JPEGDecoder\src\picojpeg.c">
+      <Filter>Source files\lib\JPEGDecoder</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\JPEGDecoder\src\JPEGDecoder.cpp">
+      <Filter>Source files\lib\JPEGDecoder</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\JPEGDecoder\src\jpg_interface.cpp">
+      <Filter>Source files\lib\JPEGDecoder</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\ILI9341\ili9341_text.c">
+      <Filter>Source files\lib\ILI9341</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\ILI9341\ili9341_graph.c">
+      <Filter>Source files\lib\ILI9341</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\ILI9341\ili9341_spi.c">
+      <Filter>Source files\lib\ILI9341</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\ILI9341\dev_spi.c">
+      <Filter>Source files\lib\ILI9341</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\ILI9341\ili9341_core.c">
+      <Filter>Source files\lib\ILI9341</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\apps\calc.c">
+      <Filter>Source files\lib\app</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\ILI9341\fonts\FreeMono9pt7b.c">
+      <Filter>Source files\lib\ILI9341\fonts</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\ILI9341\fonts\FreeMono24pt7b.c">
+      <Filter>Source files\lib\ILI9341\fonts</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\ILI9341\fonts\FreeMonoBold18pt7b.c">
+      <Filter>Source files\lib\ILI9341\fonts</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\apps\player.c">
+      <Filter>Source files\lib\app</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\utility\utility.c">
+      <Filter>Source files\lib\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Icons\battery_icons.c">
+      <Filter>Source files\lib\icons</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Icons\icon.c">
+      <Filter>Source files\lib\icons</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\ILI9341\fonts\FreeMono12pt7b.c">
+      <Filter>Source files\lib\ILI9341\fonts</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Inc\stm32f4xx_conf.h">
+      <Filter>Header files\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\stm32f4xx_it.h">
+      <Filter>Header files\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\system_stm32f4xx.h">
+      <Filter>Header files\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\cmsis\device\inc\stm32f4xx.h">
+      <Filter>Header files\lib\cmsis\device</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\attributes.h">
+      <Filter>Header files\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_delay.h">
+      <Filter>Header files\lib\tm_stm32f4</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_disco.h">
+      <Filter>Header files\lib\tm_stm32f4</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_fatfs.h">
+      <Filter>Header files\lib\tm_stm32f4</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_lis302dl_lis3dsh.h">
+      <Filter>Header files\lib\tm_stm32f4</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_spi.h">
+      <Filter>Header files\lib\tm_stm32f4</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_timer_properties.h">
+      <Filter>Header files\lib\tm_stm32f4</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_usart.h">
+      <Filter>Header files\lib\tm_stm32f4</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_usb_msc_host.h">
+      <Filter>Header files\lib\tm_stm32f4</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\defines.h">
+      <Filter>Header files\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\driver\inc\stm32f4xx_tim.h">
+      <Filter>Header files\lib\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\driver\inc\stm32f4xx_usart.h">
+      <Filter>Header files\lib\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\cwSoundFile.h">
+      <Filter>Header files\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Audio.h">
+      <Filter>Header files\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\cwMP3.h">
+      <Filter>Header files\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\helix\pub\mp3dec.h">
+      <Filter>Header files\lib\helix</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\cwWave.h">
+      <Filter>Header files\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\cwMemory.h">
+      <Filter>Header files\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Sinwave.h">
+      <Filter>Header files\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\usb_msc_host\inc\usb_core.h">
+      <Filter>Header files\lib\usb_msc_host</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\driver\inc\stm32f4xx_rcc.h">
+      <Filter>Header files\lib\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\driver\inc\stm32f4xx_gpio.h">
+      <Filter>Header files\lib\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\fatfs\ff.h">
+      <Filter>Header files\lib\fatfs</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\fatfs\drivers\fatfs_sd.h">
+      <Filter>Header files\lib\fatfs</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\fatfs\drivers\fatfs_sd_sdio.h">
+      <Filter>Header files\lib\fatfs</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\fatfs\drivers\fatfs_usb.h">
+      <Filter>Header files\lib\fatfs</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\driver\inc\stm32f4xx_sdio.h">
+      <Filter>Header files\lib\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\driver\inc\stm32f4xx_dma.h">
+      <Filter>Header files\lib\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\driver\inc\misc.h">
+      <Filter>Header files\lib\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\driver\inc\stm32f4xx_spi.h">
+      <Filter>Header files\lib\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Display\display.h">
+      <Filter>Header files\lib\display</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\battery_icons.h">
+      <Filter>Header files\lib\icons</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\icons_included.h">
+      <Filter>Header files\lib\icons</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Images\captain.h">
+      <Filter>Header files\lib\images</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Images\ironman.h">
+      <Filter>Header files\lib\images</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Images\spiderman.h">
+      <Filter>Header files\lib\images</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Images\transistor.h">
+      <Filter>Header files\lib\images</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\lcdButton\lcdButton.h">
+      <Filter>Header files\lib\LCD_button</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\xpt2046-touch\xpt2046.h">
+      <Filter>Header files\lib\xpt2046-touch</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\JPEGDecoder\src\JPEGDecoder.h">
+      <Filter>Header files\lib\JPEGDecoder</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\JPEGDecoder\src\picojpeg.h">
+      <Filter>Header files\lib\JPEGDecoder</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\JPEGDecoder\src\User_Config.h">
+      <Filter>Header files\lib\JPEGDecoder</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\JPEGDecoder\src\jpg_interface.h">
+      <Filter>Header files\lib\JPEGDecoder</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\ili9341_text.h">
+      <Filter>Header files\lib\ILI9341</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\ili9341_graph.h">
+      <Filter>Header files\lib\ILI9341</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\ili9341_spi.h">
+      <Filter>Header files\lib\ILI9341</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\ili9341_commands.h">
+      <Filter>Header files\lib\ILI9341</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\dev_spi.h">
+      <Filter>Header files\lib\ILI9341</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\ili9341_core.h">
+      <Filter>Header files\lib\ILI9341</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\circ_audio0.h">
+      <Filter>Header files\lib\icons</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\circ_audio100.h">
+      <Filter>Header files\lib\icons</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\circ_menu.h">
+      <Filter>Header files\lib\icons</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\circ_music.h">
+      <Filter>Header files\lib\icons</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\circ_mute.h">
+      <Filter>Header files\lib\icons</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\circ_next.h">
+      <Filter>Header files\lib\icons</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\circ_pause.h">
+      <Filter>Header files\lib\icons</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\circ_play.h">
+      <Filter>Header files\lib\icons</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\circ_prev.h">
+      <Filter>Header files\lib\icons</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\icon.h">
+      <Filter>Header files\lib\icons</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\retmenu.h">
+      <Filter>Header files\lib\icons</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\cell\Apps-Calc-icon.h">
+      <Filter>Header files\lib\icons\cell</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\cell\Apps-Clock-icon.h">
+      <Filter>Header files\lib\icons\cell</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\cell\Apps-Gallery-icon.h">
+      <Filter>Header files\lib\icons\cell</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\cell\Apps-Gnome-Subtitles-icon.h">
+      <Filter>Header files\lib\icons\cell</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\cell\Apps-Phone-icon.h">
+      <Filter>Header files\lib\icons\cell</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\cell\Apps-Player-Audio-C-icon.h">
+      <Filter>Header files\lib\icons\cell</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\cell\Apps-Preferences-Desktop-C-icon.h">
+      <Filter>Header files\lib\icons\cell</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\cell\Apps-Subtitleeditor-icon.h">
+      <Filter>Header files\lib\icons\cell</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\cell\Apps-Rubrica-icon.h">
+      <Filter>Header files\lib\icons\cell</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\apps\calc.h">
+      <Filter>Header files\lib\app</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\characters.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeMono9pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeMono12pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeMono18pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeMono24pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoBold9pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoBold12pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoBold18pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoBold24pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoBoldOblique9pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoBoldOblique12pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoBoldOblique18pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoBoldOblique24pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoOblique9pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoOblique12pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoOblique18pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeMonoOblique24pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSans9pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSans12pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSans18pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSans24pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansBold9pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansBold12pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansBold18pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansBold24pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansBoldOblique9pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansBoldOblique12pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansBoldOblique18pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansBoldOblique24pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansOblique9pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansOblique12pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansOblique18pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSansOblique24pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerif9pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerif12pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerif18pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerif24pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifBold9pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifBold12pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifBold18pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifBold24pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifBoldItalic9pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifBoldItalic12pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifBoldItalic18pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifBoldItalic24pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifItalic9pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifItalic12pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifItalic18pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\FreeSerifItalic24pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\glcdfont.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\Org_01.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\Picopixel.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\Tiny3x3a2pt7b.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\TomThumb.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\apps\player.h">
+      <Filter>Header files\lib\app</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\utility\utility.h">
+      <Filter>Header files\lib\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\ILI9341\fonts\fonts.h">
+      <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

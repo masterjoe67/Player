@@ -1,0 +1,12 @@
+Debug/imdct.o: lib/helix/real/imdct.c lib/helix/real/coder.h \
+ lib/helix/real/../pub/mp3common.h lib/helix/real/../pub/mp3dec.h \
+ lib/helix/real/../pub/../platform.h \
+ c:\sysgcc\arm-eabi\lib\gcc\arm-eabi\7.2.0\include\stdint.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\stdint.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\_default_types.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\features.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\_newlib_version.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\_intsup.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\_stdint.h \
+ lib/helix/real/../pub/statname.h lib/helix/real/assembly.h \
+ lib/helix/real/../platform.h

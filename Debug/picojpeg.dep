@@ -1,0 +1,2 @@
+Debug/picojpeg.o: lib/JPEGDecoder/src/picojpeg.c \
+ lib/JPEGDecoder/src/picojpeg.h
