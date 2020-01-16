@@ -1,0 +1,366 @@
+/* this library is writing by  Cristian Steib.
+ *      steibkhriz@gmail.com
+ *  Designed to work with the GSM Sim800l,maybe work with SIM900L
+ *  
+ *     This library use SoftwareSerial, you can define de RX and TX pin
+ *     in the header "Sim800l.h" ,by default the pin is RX=10 TX=11..
+ *     be sure that gnd is attached to arduino too. 
+ *     You can also change the other preferred RESET_PIN
+ *    
+ *     Esta libreria usa SoftwareSerial, se pueden cambiar los pines de RX y TX
+ *     en el archivo header, "Sim800l.h", por defecto los pines vienen configurado en
+ *     RX=10 TX=11.  
+ *     Tambien se puede cambiar el RESET_PIN por otro que prefiera
+ *     
+ *    PINOUT: 
+ *        _____________________________
+ *       |  ARDUINO UNO >>>   SIM800L  |
+ *        -----------------------------
+ *            GND      >>>   GND
+ *        RX  10       >>>   TX    
+ *        TX  11       >>>   RX
+ *       RESET 2       >>>   RST 
+ *                 
+ *   POWER SOURCE 4.2V >>> VCC
+ *
+ *    Created on: April 20, 2016
+ *        Author: Cristian Steib
+ *        
+ *
+*/
+#include <stdlib.h>
+#include <string.h>
+#include "Sim800l.h"
+#include "tm_stm32f4_usart.h"
+#include "tm_stm32f4_delay.h"
+
+//SoftwareSerial SIM(RX_PIN,TX_PIN);
+char _buffer[255];
+
+void Sim800l_begin() {
+	TM_USART_Init(USART2, TM_USART_PinsPack_1, 9600);
+	//SIM.begin(9600);
+#if (LED) 
+    pinMode(OUTPUT, LED_PIN);
+#endif
+	//_buffer.reserve(255); //reserve memory to prevent intern fragmention
+}
+
+uint8_t available()
+{
+	return USART_GetFlagStatus(USART2, USART_FLAG_RXNE);
+}
+
+//
+//PRIVATE METHODS
+//
+void Sim800l_readSerial() {
+	_timeout = 0;
+	
+	while (USART_GetFlagStatus(USART3, USART_FLAG_RXNE) == RESET && _timeout < 12000) 
+	{
+		Delayms(13);
+		_timeout++;
+
+
+	}
+	if (available()) {
+		TM_USART_Gets(USART2, _buffer, 255);
+		//return SIM.readString();
+	}
+  
+
+}
+
+
+//
+//PUBLIC METHODS
+//
+
+void Sim800l_reset() {
+#if (LED)
+	digitalWrite(LED_PIN, 1);
+#endif 
+	char *s;
+	SIM800L_RST_SET;
+	Delayms(1000);
+	SIM800L_RST_RESET;
+	Delayms(1000);
+	// wait for the module response
+
+	  TM_USART_Puts(USART2, "AT\r\n");
+	// SIM.print(F("AT\r\n"));
+	 while(s == NULL) {
+		Sim800l_readSerial();
+		s = strstr(_buffer, "OK");
+		TM_USART_Puts(USART2, "AT\r\n");
+	}
+  
+	//wait for sms ready
+	while(s == NULL) {
+		Sim800l_readSerial();
+		s = strstr(_buffer, "SMS");
+	}
+#if (LED)
+	digitalWrite(LED_PIN, 0);
+#endif 
+}
+
+void Sim800l_etPhoneFunctionality() {
+	/*AT+CFUN=<fun>[,<rst>] 
+	Parameters
+	<fun> 0 Minimum functionality
+	1 Full functionality (Default)
+	4 Disable phone both transmit and receive RF circuits.
+	<rst> 1 Reset the MT before setting it to <fun> power level.
+	*/
+	//SIM.print(F("AT+CFUN=1\r\n"));
+	TM_USART_Puts(USART2, "AT+CFUN=1\r\n");
+}
+
+
+void Sim800l_signalQuality() {
+	/*Response
+	+CSQ: <rssi>,<ber>Parameters
+	<rssi>
+	0 -115 dBm or less
+	1 -111 dBm
+	2...30 -110... -54 dBm
+	31 -52 dBm or greater
+	99 not known or not detectable
+	<ber> (in percent):
+	0...7 As RXQUAL values in the table in GSM 05.08 [20]
+	subclause 7.2.4
+	99 Not known or not detectable 
+	*/
+	//SIM.print(F("AT+CSQ\r\n"));
+	TM_USART_Puts(USART2, "AT+CSQ\r\n");
+	//Serial.println(_readSerial());
+}
+
+
+void Sim800l_activateBearerProfile() {
+	/*SIM.print(F(" AT+SAPBR=3,1,\"CONTYPE\",\"GPRS\" \r\n")); _buffer = _readSerial();   // set bearer parameter 
+	SIM.print(F(" AT+SAPBR=3,1,\"APN\",\"internet\" \r\n")); _buffer = _readSerial();  // set apn  
+	SIM.print(F(" AT+SAPBR=1,1 \r\n")); delay(1200); _buffer = _readSerial(); // activate bearer context
+	SIM.print(F(" AT+SAPBR=2,1\r\n ")); delay(3000); _buffer = _readSerial();  // get context ip address*/
+	
+	TM_USART_Puts(USART2, " AT+SAPBR=3,1,\"CONTYPE\",\"GPRS\" \r\n"); _readSerial();
+	TM_USART_Puts(USART2, " AT+SAPBR=3,1,\"APN\",\"internet\" \r\n"); _readSerial();
+	TM_USART_Puts(USART2, " AT+SAPBR=1,1 \r\n"); Delayms(1200); _readSerial();
+	TM_USART_Puts(USART2, " AT+SAPBR=2,1\r\n "); Delayms(3000); _readSerial();
+}
+
+
+void Sim800l_deactivateBearerProfile() {
+	TM_USART_Puts(USART2, "AT+SAPBR=0,1\r\n ");
+
+	Delayms(1500);
+}
+
+
+
+bool Sim800l_answerCall() {
+	char* s;
+	TM_USART_Puts(USART2, "ATA\r\n");
+	_readSerial();
+	//Response in case of data call, if successfully connected 
+	s = strstr(_buffer, "OK");
+	if(s != NULL) return true;  
+	else return false;
+}
+
+
+void  Sim800l_callNumber(char* number) {
+	TM_USART_Puts(USART2, "ATD");
+
+	TM_USART_Puts(USART2, number);
+
+	TM_USART_Puts(USART2, ";\r\n");
+}
+
+
+
+uint8_t Sim800l_getCallStatus() {
+	/*
+	  values of return:
+ 
+	 0 Ready (MT allows commands from TA/TE)
+	 2 Unknown (MT is not guaranteed to respond to tructions)
+	 3 Ringing (MT is ready for commands from TA/TE, but the ringer is active)
+	 4 Call in progress
+
+	 */
+	char *position_ptr;
+	TM_USART_Puts(USART2, "AT+CPAS\r\n");
+	_readSerial();  
+	
+	position_ptr = strstr(_buffer, " + CPAS : ");
+	//int position = position_ptr - _buffer;
+	int position = (position_ptr == NULL ? -1 : position_ptr - _buffer);
+	
+	char subbuff[4];
+	memcpy(subbuff, &_buffer[position +7 ], 3);
+	subbuff[3] = '\0';
+	return atoi(subbuff);
+	
+	//return _buffer.substring(_buffer.indexOf("+CPAS: ") + 7, _buffer.indexOf("+CPAS: ") + 9).toInt();
+
+}
+
+
+
+bool Sim800l_hangoffCall() {
+	char* s;
+	TM_USART_Puts(USART2, "ATH\r\n");
+	_readSerial();
+	s = strstr(_buffer, "OK");
+	if (s != NULL) return true;  
+	else return false;
+}
+
+
+
+
+
+
+bool Sim800l_sendSms(char* number, char* text) {  
+	char* s;
+	TM_USART_Puts(USART2, "AT+CMGF=1\r");	//set sms to text mode
+	_readSerial();
+	TM_USART_Puts(USART2, "AT+CMGS=\"");
+	TM_USART_Puts(USART2, number);
+	TM_USART_Puts(USART2, "\"\r");     
+	_readSerial(); 
+	TM_USART_Puts(USART2, text);
+	TM_USART_Puts(USART2, "\r");
+	//change delay 100 to readserial	
+    _readSerial();
+	TM_USART_Puts(USART2, (char)26);
+	_readSerial();
+	//expect CMGS:xxx   , where xxx is a number,for the sending sms.
+	s = strstr(_buffer, "CMGS");
+	if (s != NULL) return true;  
+	else return false;
+	
+}
+
+
+String Sim800l::getNumberSms(uint8_t index) {
+	_buffer = readSms(index);
+	Serial.println(_buffer.length());
+	if (_buffer.length() > 10) //avoid empty sms
+		{
+			uint8_t _idx1 = _buffer.indexOf("+CMGR:");
+			_idx1 = _buffer.indexOf("\",\"", _idx1 + 1);
+			return _buffer.substring(_idx1 + 3, _buffer.indexOf("\",\"", _idx1 + 4));
+		}
+	else {
+		return "";
+	}
+}
+
+
+
+String Sim800l::readSms(uint8_t index) {
+	SIM.print(F("AT+CMGF=1\r")); 
+	if ((_readSerial().indexOf("ER")) == -1) {
+		SIM.print(F("AT+CMGR="));
+		SIM.print(index);
+		SIM.print("\r");
+		_buffer = _readSerial();
+		if (_buffer.indexOf("CMGR:") != -1) {
+			return _buffer;
+		}
+		else return "";    
+	}
+	else
+		return "";
+}
+
+
+bool Sim800l::delAllSms() { 
+	SIM.print(F("at+cmgda=\"del all\"\n\r"));
+	_buffer = _readSerial();
+	if (_buffer.indexOf("OK") != -1) {return true;}
+	else {return false;}
+  
+}
+
+
+void Sim800l::RTCtime(int *day, int *month, int *year, int *hour, int *minute, int *second) {
+	SIM.print(F("at+cclk?\r\n"));
+	// if respond with ERROR try one more time. 
+	_buffer = _readSerial();
+	if ((_buffer.indexOf("ERR")) != -1) {
+		delay(50);
+		SIM.print(F("at+cclk?\r\n"));
+	} 
+	if ((_buffer.indexOf("ERR")) == -1) {
+		_buffer = _buffer.substring(_buffer.indexOf("\"") + 1, _buffer.lastIndexOf("\"") - 1);  
+		*year = _buffer.substring(0, 2).toInt();
+		*month = _buffer.substring(3, 5).toInt();
+		*day = _buffer.substring(6, 8).toInt();
+		*hour = _buffer.substring(9, 11).toInt();
+		*minute = _buffer.substring(12, 14).toInt();
+		*second = _buffer.substring(15, 17).toInt();
+	}
+}
+
+//Get the time  of the base of GSM
+String Sim800l::dateNet() {
+	SIM.print(F("AT+CIPGSMLOC=2,1\r\n "));
+	_buffer = _readSerial();
+
+	if (_buffer.indexOf("OK") != -1) {
+		return _buffer.substring(_buffer.indexOf(":") + 2, (_buffer.indexOf("OK") - 4));
+	}
+	else
+		return "0";      
+}
+
+// Update the RTC of the module with the date of GSM. 
+bool Sim800l::updateRtc(int utc) {
+  
+	activateBearerProfile();
+	_buffer = dateNet();
+	deactivateBearerProfile();
+  
+	_buffer = _buffer.substring(_buffer.indexOf(",") + 1, _buffer.length());
+	String dt = _buffer.substring(0, _buffer.indexOf(","));
+	String tm = _buffer.substring(_buffer.indexOf(",") + 1, _buffer.length());
+
+	int hour = tm.substring(0, 2).toInt();
+	int day = dt.substring(8, 10).toInt();
+
+	hour = hour + utc;
+
+	String tmp_hour;
+	String tmp_day;
+	//TODO : fix if the day is 0, this occur when day is 1 then decrement to 1, 
+	//       will need to check the last month what is the last day .  
+	if(hour < 0) {
+		hour += 24;
+		day -= 1;
+	}
+	if (hour < 10) {
+
+		tmp_hour = "0" + String(hour);
+	}
+	else {
+		tmp_hour = String(hour);
+	}
+	if (day < 10) {
+		tmp_day = "0" + String(day);    
+	}
+	else {
+		tmp_day = String(day);
+	}
+	//for debugging
+  //Serial.println("at+cclk=\""+dt.substring(2,4)+"/"+dt.substring(5,7)+"/"+tmp_day+","+tmp_hour+":"+tm.substring(3,5)+":"+tm.substring(6,8)+"-03\"\r\n");
+  SIM.print("at+cclk=\"" + dt.substring(2, 4) + "/" + dt.substring(5, 7) + "/" + tmp_day + "," + tmp_hour + ":" + tm.substring(3, 5) + ":" + tm.substring(6, 8) + "-03\"\r\n");
+	if ((_readSerial().indexOf("ER")) != -1) {return false;}
+	else return true;
+
+   
+}

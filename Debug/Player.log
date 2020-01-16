@@ -1,5 +1,147 @@
 ﻿  VisualGDB: Run "C:\SysGCC\arm-eabi\bin\make.exe  CONFIG=Debug -j2" in directory "H:\PLAYER_V2\Player" on local computer
-  make: Nothing to be done for `all'.
+  C:/SysGCC/arm-eabi/bin/arm-eabi-gcc.exe -ggdb -std=gnu99 -g -O2 -Wall -mlittle-endian -mthumb -mthumb-interwork -mcpu=cortex-m4 -fsingle-precision-constant -Wdouble-promotion   -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=soft -IInc -Ilib/cmsis/device/inc -Ilib/cmsis/inc -Ilib/driver/inc -Ilib/stm32f4-tm/inc -Ilib/fatfs -Ilib/usb_msc_host/inc -Ilib/helix/pub -Ilib/helix/real -Ilib/fatfs/drivers -Ilib/Print -Ilib/Adafruit-GFX -Ilib/Adafruit_ILI9341 -Ilib/XPT2046 -Ilib/ILI9341 -Ilib/Display -Ilib/Icons -Ilib/Images -Ilib/Touch -Ilib/lcdButton -Ilib/xpt2046-touch -Ilib/JPEGDecoder/src -Ilib/Icons/cell -Ilib/apps -Ilib/ILI9341/fonts -Ilib/utility -Ilib/Sim800l -Ilib/Icons/battery -I. -DDEBUG=1 -DUSE_STDPERIPH_DRIVER -DSTM32F40_41xxx -DSTM32F407VG -DHSE_VALUE=((uint32_t)8000000) -DARM_MATH_CM4 -Dflash_layout -DSTM32F407VG  -c lib/Display/display.c -o Debug/display.o -MD -MF Debug/display.dep
+  H:\PLAYER_V2\Player\Inc\main.h(41):
+  H:\PLAYER_V2\Player\lib\Display\display.h(3):
+  H:\PLAYER_V2\Player\lib\Display\display.c(1):
+H:\PLAYER_V2\Player\Inc\defines.h(85): warning : "TM_SPI2_PRESCALER" redefined
+   #define TM_SPI2_PRESCALER SPI_BaudRatePrescaler_2
+   
+  H:\PLAYER_V2\Player\Inc\defines.h(30):
+  H:\PLAYER_V2\Player\Inc\main.h(41):
+  H:\PLAYER_V2\Player\lib\Display\display.h(3):
+  H:\PLAYER_V2\Player\lib\Display\display.c(1):
+  H:\PLAYER_V2\Player\lib\stm32f4-tm\inc\tm_stm32f4_spi.h(136): note :  this is the location of the previous definition
+   #define TM_SPI2_PRESCALER SPI_BaudRatePrescaler_32
+   
+  H:\PLAYER_V2\Player\lib\usb_msc_host\inc\usb_regs.h(33):
+  H:\PLAYER_V2\Player\lib\usb_msc_host\inc\usb_hcd.h(33):
+  H:\PLAYER_V2\Player\lib\usb_msc_host\inc\usbh_core.h(33):
+  H:\PLAYER_V2\Player\lib\stm32f4-tm\inc\tm_stm32f4_usb_msc_host.h(100):
+  H:\PLAYER_V2\Player\lib\Display\display.c(11):
+H:\PLAYER_V2\Player\lib\usb_msc_host\inc\usb_conf.h(215): warning : "__packed" redefined
+     #define __packed    __attribute__ ((__packed__))
+   
+  c:\sysgcc\arm-eabi\arm-eabi\sys-include\stdlib.h(19):
+  H:\PLAYER_V2\Player\lib\Display\display.h(2):
+  H:\PLAYER_V2\Player\lib\Display\display.c(1):
+  c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\cdefs.h(256): note :  this is the location of the previous definition
+   #define __packed __attribute__((__packed__))
+   
+  lib/Display/display.c: In function 'getButtonNumber':
+H:\PLAYER_V2\Player\lib\Display\display.c(54,21): warning : passing argument 1 of 'BTN_isPressed' from incompatible pointer type [-Wincompatible-pointer-types]
+     if (BTN_isPressed(&but_icon[0], xInput, yInput)) {
+                       ^
+  H:\PLAYER_V2\Player\lib\Display\display.c(5):
+  H:\PLAYER_V2\Player\lib\lcdButton\lcdButton.h(88,6): note :  expected 'BTN_TypeDef * {aka struct <anonymous> *}' but argument is of type 'BTN_Icon_TypeDef * {aka struct <anonymous> *}'
+   bool BTN_isPressed(BTN_TypeDef* btn, int16_t x, int16_t y);
+        ^~~~~~~~~~~~~
+H:\PLAYER_V2\Player\lib\Display\display.c(57,26): warning : passing argument 1 of 'BTN_isPressed' from incompatible pointer type [-Wincompatible-pointer-types]
+     else if (BTN_isPressed(&but_icon[1], xInput, yInput)) {
+                            ^
+  H:\PLAYER_V2\Player\lib\Display\display.c(5):
+  H:\PLAYER_V2\Player\lib\lcdButton\lcdButton.h(88,6): note :  expected 'BTN_TypeDef * {aka struct <anonymous> *}' but argument is of type 'BTN_Icon_TypeDef * {aka struct <anonymous> *}'
+   bool BTN_isPressed(BTN_TypeDef* btn, int16_t x, int16_t y);
+        ^~~~~~~~~~~~~
+H:\PLAYER_V2\Player\lib\Display\display.c(60,26): warning : passing argument 1 of 'BTN_isPressed' from incompatible pointer type [-Wincompatible-pointer-types]
+     else if (BTN_isPressed(&but_icon[2], xInput, yInput)) {
+                            ^
+  H:\PLAYER_V2\Player\lib\Display\display.c(5):
+  H:\PLAYER_V2\Player\lib\lcdButton\lcdButton.h(88,6): note :  expected 'BTN_TypeDef * {aka struct <anonymous> *}' but argument is of type 'BTN_Icon_TypeDef * {aka struct <anonymous> *}'
+   bool BTN_isPressed(BTN_TypeDef* btn, int16_t x, int16_t y);
+        ^~~~~~~~~~~~~
+H:\PLAYER_V2\Player\lib\Display\display.c(63,26): warning : passing argument 1 of 'BTN_isPressed' from incompatible pointer type [-Wincompatible-pointer-types]
+     else if (BTN_isPressed(&but_icon[3], xInput, yInput)) {
+                            ^
+  H:\PLAYER_V2\Player\lib\Display\display.c(5):
+  H:\PLAYER_V2\Player\lib\lcdButton\lcdButton.h(88,6): note :  expected 'BTN_TypeDef * {aka struct <anonymous> *}' but argument is of type 'BTN_Icon_TypeDef * {aka struct <anonymous> *}'
+   bool BTN_isPressed(BTN_TypeDef* btn, int16_t x, int16_t y);
+        ^~~~~~~~~~~~~
+H:\PLAYER_V2\Player\lib\Display\display.c(66,26): warning : passing argument 1 of 'BTN_isPressed' from incompatible pointer type [-Wincompatible-pointer-types]
+     else if (BTN_isPressed(&but_icon[4], xInput, yInput)) {
+                            ^
+  H:\PLAYER_V2\Player\lib\Display\display.c(5):
+  H:\PLAYER_V2\Player\lib\lcdButton\lcdButton.h(88,6): note :  expected 'BTN_TypeDef * {aka struct <anonymous> *}' but argument is of type 'BTN_Icon_TypeDef * {aka struct <anonymous> *}'
+   bool BTN_isPressed(BTN_TypeDef* btn, int16_t x, int16_t y);
+        ^~~~~~~~~~~~~
+H:\PLAYER_V2\Player\lib\Display\display.c(69,26): warning : passing argument 1 of 'BTN_isPressed' from incompatible pointer type [-Wincompatible-pointer-types]
+     else if (BTN_isPressed(&but_icon[5], xInput, yInput)) {
+                            ^
+  H:\PLAYER_V2\Player\lib\Display\display.c(5):
+  H:\PLAYER_V2\Player\lib\lcdButton\lcdButton.h(88,6): note :  expected 'BTN_TypeDef * {aka struct <anonymous> *}' but argument is of type 'BTN_Icon_TypeDef * {aka struct <anonymous> *}'
+   bool BTN_isPressed(BTN_TypeDef* btn, int16_t x, int16_t y);
+        ^~~~~~~~~~~~~
+H:\PLAYER_V2\Player\lib\Display\display.c(72,26): warning : passing argument 1 of 'BTN_isPressed' from incompatible pointer type [-Wincompatible-pointer-types]
+     else if (BTN_isPressed(&but_icon[6], xInput, yInput)) {
+                            ^
+  H:\PLAYER_V2\Player\lib\Display\display.c(5):
+  H:\PLAYER_V2\Player\lib\lcdButton\lcdButton.h(88,6): note :  expected 'BTN_TypeDef * {aka struct <anonymous> *}' but argument is of type 'BTN_Icon_TypeDef * {aka struct <anonymous> *}'
+   bool BTN_isPressed(BTN_TypeDef* btn, int16_t x, int16_t y);
+        ^~~~~~~~~~~~~
+H:\PLAYER_V2\Player\lib\Display\display.c(75,26): warning : passing argument 1 of 'BTN_isPressed' from incompatible pointer type [-Wincompatible-pointer-types]
+     else if (BTN_isPressed(&but_icon[7], xInput, yInput)) {
+                            ^
+  H:\PLAYER_V2\Player\lib\Display\display.c(5):
+  H:\PLAYER_V2\Player\lib\lcdButton\lcdButton.h(88,6): note :  expected 'BTN_TypeDef * {aka struct <anonymous> *}' but argument is of type 'BTN_Icon_TypeDef * {aka struct <anonymous> *}'
+   bool BTN_isPressed(BTN_TypeDef* btn, int16_t x, int16_t y);
+        ^~~~~~~~~~~~~
+  lib/Display/display.c: In function 'slideshowMenu':
+H:\PLAYER_V2\Player\lib\Display\display.c(405,9): warning : unused variable 'y' [-Wunused-variable]
+    int x, y;
+           ^
+H:\PLAYER_V2\Player\lib\Display\display.c(405,6): warning : unused variable 'x' [-Wunused-variable]
+    int x, y;
+        ^
+  lib/Display/display.c: In function 'renderJPEG':
+H:\PLAYER_V2\Player\lib\Display\display.c(451,11): warning : unused variable 'drawTime' [-Wunused-variable]
+    uint32_t drawTime = TM_Time;
+             ^~~~~~~~
+  H:\PLAYER_V2\Player\lib\ILI9341\fonts\fonts.h(3):
+  H:\PLAYER_V2\Player\lib\apps\phone.h(6):
+  H:\PLAYER_V2\Player\Inc\main.h(42):
+  H:\PLAYER_V2\Player\lib\Display\display.h(3):
+  H:\PLAYER_V2\Player\lib\Display\display.c(1):
+  lib/Display/display.c: At top level:
+H:\PLAYER_V2\Player\lib\ILI9341\fonts\FreeMono9pt7b.h(6,16): warning : array 'FreeMono9pt7bGlyphs' assumed to have one element
+   const GFXglyph FreeMono9pt7bGlyphs[];
+                  ^~~~~~~~~~~~~~~~~~~
+  H:\PLAYER_V2\Player\lib\ILI9341\fonts\fonts.h(4):
+  H:\PLAYER_V2\Player\lib\apps\phone.h(6):
+  H:\PLAYER_V2\Player\Inc\main.h(42):
+  H:\PLAYER_V2\Player\lib\Display\display.h(3):
+  H:\PLAYER_V2\Player\lib\Display\display.c(1):
+H:\PLAYER_V2\Player\lib\ILI9341\fonts\FreeMono12pt7b.h(5,15): warning : array 'FreeMono12pt7bBitmaps' assumed to have one element
+   const uint8_t FreeMono12pt7bBitmaps[];
+                 ^~~~~~~~~~~~~~~~~~~~~
+H:\PLAYER_V2\Player\lib\ILI9341\fonts\FreeMono12pt7b.h(7,16): warning : array 'FreeMono12pt7bGlyphs' assumed to have one element
+   const GFXglyph FreeMono12pt7bGlyphs[];
+                  ^~~~~~~~~~~~~~~~~~~~
+  H:\PLAYER_V2\Player\lib\ILI9341\fonts\fonts.h(5):
+  H:\PLAYER_V2\Player\lib\apps\phone.h(6):
+  H:\PLAYER_V2\Player\Inc\main.h(42):
+  H:\PLAYER_V2\Player\lib\Display\display.h(3):
+  H:\PLAYER_V2\Player\lib\Display\display.c(1):
+H:\PLAYER_V2\Player\lib\ILI9341\fonts\FreeMono24pt7b.h(6,16): warning : array 'FreeMono24pt7bGlyphs' assumed to have one element
+   const GFXglyph FreeMono24pt7bGlyphs[];
+                  ^~~~~~~~~~~~~~~~~~~~
+  H:\PLAYER_V2\Player\lib\ILI9341\fonts\fonts.h(7):
+  H:\PLAYER_V2\Player\lib\apps\phone.h(6):
+  H:\PLAYER_V2\Player\Inc\main.h(42):
+  H:\PLAYER_V2\Player\lib\Display\display.h(3):
+  H:\PLAYER_V2\Player\lib\Display\display.c(1):
+H:\PLAYER_V2\Player\lib\ILI9341\fonts\FreeMonoBold18pt7b.h(5,15): warning : array 'FreeMonoBold18pt7bBitmaps' assumed to have one element
+   const uint8_t FreeMonoBold18pt7bBitmaps[];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+H:\PLAYER_V2\Player\lib\ILI9341\fonts\FreeMonoBold18pt7b.h(6,16): warning : array 'FreeMonoBold18pt7bGlyphs' assumed to have one element
+   const GFXglyph FreeMonoBold18pt7bGlyphs[];
+                  ^~~~~~~~~~~~~~~~~~~~~~~~
+  C:/SysGCC/arm-eabi/bin/arm-eabi-g++.exe -o Debug/Player.elf -Wl,-gc-sections --specs=nano.specs --specs=nosys.specs -Tstm32_flash.ld  -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=soft   -Wl,--start-group Debug/calc.o Debug/phone.o Debug/player.o Debug/display.o Debug/misc.o Debug/stm32f4xx_adc.o Debug/stm32f4xx_dma.o Debug/stm32f4xx_exti.o Debug/stm32f4xx_gpio.o Debug/stm32f4xx_rcc.o Debug/stm32f4xx_sdio.o Debug/stm32f4xx_spi.o Debug/stm32f4xx_syscfg.o Debug/stm32f4xx_tim.o Debug/stm32f4xx_usart.o Debug/diskio.o Debug/fatfs_sd.o Debug/fatfs_sd_sdio.o Debug/fatfs_usb.o Debug/ff.o Debug/mp3dec.o Debug/mp3tabs.o Debug/bitstream.o Debug/buffers.o Debug/dct32.o Debug/dequant.o Debug/dqchan.o Debug/huffman.o Debug/hufftabs.o Debug/imdct.o Debug/polyphase.o Debug/scalfact.o Debug/stproc.o Debug/subband.o Debug/trigtabs_fixpt.o Debug/battery-1-16.o Debug/battery-2-16.o Debug/battery-3-16.o Debug/battery-charge16.o Debug/battery-charged16.o Debug/battery-empty16.o Debug/battery-full16.o Debug/battery-half16.o Debug/battery_icons.o Debug/icon.o Debug/dev_spi.o Debug/FreeMono12pt7b.o Debug/FreeMono24pt7b.o Debug/FreeMono9pt7b.o Debug/FreeMonoBold18pt7b.o Debug/ili9341_core.o Debug/ili9341_graph.o Debug/ili9341_spi.o Debug/ili9341_text.o Debug/JPEGDecoder.o Debug/jpg_interface.o Debug/picojpeg.o Debug/lcdButton.o Debug/Sim800l.o Debug/SIM800L_interface.o Debug/tm_stm32f4_adc.o Debug/tm_stm32f4_delay.o Debug/tm_stm32f4_disco.o Debug/tm_stm32f4_fatfs.o Debug/tm_stm32f4_gpio.o Debug/tm_stm32f4_lis302dl_lis3dsh.o Debug/tm_stm32f4_spi.o Debug/tm_stm32f4_timer_properties.o Debug/tm_stm32f4_usart.o Debug/tm_stm32f4_usb_msc_host.o Debug/usbh_core.o Debug/usbh_hcs.o Debug/usbh_ioreq.o Debug/usbh_msc_bot.o Debug/usbh_msc_core.o Debug/usbh_msc_scsi.o Debug/usbh_stdreq.o Debug/usbh_usr.o Debug/usb_bsp.o Debug/usb_core.o Debug/usb_hcd.o Debug/usb_hcd_int.o Debug/utility.o Debug/xpt2046.o Debug/Audio.o Debug/background.o Debug/cwMemory.o Debug/cwMP3.o Debug/cwSoundFile.o Debug/cwWave.o Debug/main.o Debug/stm32f4xx_it.o Debug/syscalls.o Debug/system_stm32f4xx.o   lib/startup_stm32f4xx.s  -Wl,--end-group
+c:/sysgcc/arm-eabi/bin/../lib/gcc/arm-eabi/7.2.0/../../../../arm-eabi/bin/ld.exe : warning : size of symbol `FreeMono12pt7bGlyphs' changed from 8 in Debug/calc.o to 760 in Debug/FreeMono12pt7b.o
+c:/sysgcc/arm-eabi/bin/../lib/gcc/arm-eabi/7.2.0/../../../../arm-eabi/bin/ld.exe : warning : size of symbol `FreeMono12pt7bBitmaps' changed from 1 in Debug/calc.o to 1460 in Debug/FreeMono12pt7b.o
+c:/sysgcc/arm-eabi/bin/../lib/gcc/arm-eabi/7.2.0/../../../../arm-eabi/bin/ld.exe : warning : size of symbol `FreeMono24pt7bGlyphs' changed from 8 in Debug/calc.o to 760 in Debug/FreeMono24pt7b.o
+c:/sysgcc/arm-eabi/bin/../lib/gcc/arm-eabi/7.2.0/../../../../arm-eabi/bin/ld.exe : warning : size of symbol `FreeMono9pt7bGlyphs' changed from 8 in Debug/calc.o to 760 in Debug/FreeMono9pt7b.o
+c:/sysgcc/arm-eabi/bin/../lib/gcc/arm-eabi/7.2.0/../../../../arm-eabi/bin/ld.exe : warning : size of symbol `FreeMonoBold18pt7bGlyphs' changed from 8 in Debug/calc.o to 760 in Debug/FreeMonoBold18pt7b.o
+c:/sysgcc/arm-eabi/bin/../lib/gcc/arm-eabi/7.2.0/../../../../arm-eabi/bin/ld.exe : warning : size of symbol `FreeMonoBold18pt7bBitmaps' changed from 1 in Debug/calc.o to 3813 in Debug/FreeMonoBold18pt7b.o
+  C:/SysGCC/arm-eabi/bin/arm-eabi-objcopy.exe -O binary Debug/Player.elf Debug/Player.bin
   ------------------- Memory utilization report -------------------
   Used FLASH: 419KB out of 1024KB (40%)
   Used SRAM: 104KB out of 128KB (81%)

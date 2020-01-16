@@ -29,19 +29,11 @@ DIR dir;
 uint8_t mode = 0;
 uint32_t lastTouch;
 
-
-
-
-
 char name[20];
-
-
 
 // Parameters for the array of buttons
 const int xstartButton[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };                    // x-min for keypads
 const int ystartButton[] = { 0, 24, 48, 72, 96, 120, 144, 168, 192, 216 };              // y-min for keypads
-
-
 
 // Button position in main menu
 const int widthButtonMain = 48;
@@ -183,7 +175,7 @@ uint8_t Display_mainMenu()
 {
 	mode = 0;
 	vbat_refresh = false;
-	LCD_fillScreen(BLACK);
+	LCD_fillScreen(WHITE);
 
 	int i = 0;
 	BTN_icon_initUL(&but_icon[i], xstartButtonMain[i], ystartButtonMain[i], widthButtonMain, heightButtonMain, (uint16_t *)image_data_AppsCalcicon);
