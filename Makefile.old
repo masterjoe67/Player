@@ -60,7 +60,7 @@ error:
 	$(error Invalid configuration, please check your inputs)
 endif
 
-SOURCEFILES := lib/apps/calc.c lib/apps/player.c lib/Display/display.c lib/driver/src/misc.c lib/driver/src/stm32f4xx_dma.c lib/driver/src/stm32f4xx_exti.c lib/driver/src/stm32f4xx_gpio.c lib/driver/src/stm32f4xx_rcc.c lib/driver/src/stm32f4xx_sdio.c lib/driver/src/stm32f4xx_spi.c lib/driver/src/stm32f4xx_syscfg.c lib/driver/src/stm32f4xx_tim.c lib/driver/src/stm32f4xx_usart.c lib/fatfs/diskio.c lib/fatfs/drivers/fatfs_sd.c lib/fatfs/drivers/fatfs_sd_sdio.c lib/fatfs/drivers/fatfs_usb.c lib/fatfs/ff.c lib/helix/mp3dec.c lib/helix/mp3tabs.c lib/helix/real/bitstream.c lib/helix/real/buffers.c lib/helix/real/dct32.c lib/helix/real/dequant.c lib/helix/real/dqchan.c lib/helix/real/huffman.c lib/helix/real/hufftabs.c lib/helix/real/imdct.c lib/helix/real/polyphase.c lib/helix/real/scalfact.c lib/helix/real/stproc.c lib/helix/real/subband.c lib/helix/real/trigtabs_fixpt.c lib/Icons/battery_icons.c lib/Icons/icon.c lib/ILI9341/dev_spi.c lib/ILI9341/fonts/FreeMono24pt7b.c lib/ILI9341/fonts/FreeMono9pt7b.c lib/ILI9341/fonts/FreeMonoBold18pt7b.c lib/ILI9341/ili9341_core.c lib/ILI9341/ili9341_graph.c lib/ILI9341/ili9341_spi.c lib/ILI9341/ili9341_text.c lib/JPEGDecoder/src/JPEGDecoder.cpp lib/JPEGDecoder/src/jpg_interface.cpp lib/JPEGDecoder/src/picojpeg.c lib/lcdButton/lcdButton.c lib/stm32f4-tm/src/tm_stm32f4_delay.c lib/stm32f4-tm/src/tm_stm32f4_disco.c lib/stm32f4-tm/src/tm_stm32f4_fatfs.c lib/stm32f4-tm/src/tm_stm32f4_lis302dl_lis3dsh.c lib/stm32f4-tm/src/tm_stm32f4_spi.c lib/stm32f4-tm/src/tm_stm32f4_timer_properties.c lib/stm32f4-tm/src/tm_stm32f4_usart.c lib/stm32f4-tm/src/tm_stm32f4_usb_msc_host.c lib/usb_msc_host/src/usbh_core.c lib/usb_msc_host/src/usbh_hcs.c lib/usb_msc_host/src/usbh_ioreq.c lib/usb_msc_host/src/usbh_msc_bot.c lib/usb_msc_host/src/usbh_msc_core.c lib/usb_msc_host/src/usbh_msc_scsi.c lib/usb_msc_host/src/usbh_stdreq.c lib/usb_msc_host/src/usbh_usr.c lib/usb_msc_host/src/usb_bsp.c lib/usb_msc_host/src/usb_core.c lib/usb_msc_host/src/usb_hcd.c lib/usb_msc_host/src/usb_hcd_int.c lib/utility/utility.c lib/xpt2046-touch/xpt2046.c Src/Audio.c Src/cwMemory.c Src/cwMP3.c Src/cwSoundFile.c Src/cwWave.c Src/main.c Src/stm32f4xx_it.c Src/syscalls.c Src/system_stm32f4xx.c
+SOURCEFILES := lib/apps/calc.c lib/apps/phone.c lib/apps/player.c lib/Display/display.c lib/driver/src/misc.c lib/driver/src/stm32f4xx_adc.c lib/driver/src/stm32f4xx_dma.c lib/driver/src/stm32f4xx_exti.c lib/driver/src/stm32f4xx_gpio.c lib/driver/src/stm32f4xx_rcc.c lib/driver/src/stm32f4xx_sdio.c lib/driver/src/stm32f4xx_spi.c lib/driver/src/stm32f4xx_syscfg.c lib/driver/src/stm32f4xx_tim.c lib/driver/src/stm32f4xx_usart.c lib/fatfs/diskio.c lib/fatfs/drivers/fatfs_sd.c lib/fatfs/drivers/fatfs_sd_sdio.c lib/fatfs/drivers/fatfs_usb.c lib/fatfs/ff.c lib/helix/mp3dec.c lib/helix/mp3tabs.c lib/helix/real/bitstream.c lib/helix/real/buffers.c lib/helix/real/dct32.c lib/helix/real/dequant.c lib/helix/real/dqchan.c lib/helix/real/huffman.c lib/helix/real/hufftabs.c lib/helix/real/imdct.c lib/helix/real/polyphase.c lib/helix/real/scalfact.c lib/helix/real/stproc.c lib/helix/real/subband.c lib/helix/real/trigtabs_fixpt.c lib/Icons/battery_icons.c lib/Icons/icon.c lib/ILI9341/dev_spi.c lib/ILI9341/fonts/FreeMono12pt7b.c lib/ILI9341/fonts/FreeMono24pt7b.c lib/ILI9341/fonts/FreeMono9pt7b.c lib/ILI9341/fonts/FreeMonoBold18pt7b.c lib/ILI9341/ili9341_core.c lib/ILI9341/ili9341_graph.c lib/ILI9341/ili9341_spi.c lib/ILI9341/ili9341_text.c lib/JPEGDecoder/src/JPEGDecoder.cpp lib/JPEGDecoder/src/jpg_interface.cpp lib/JPEGDecoder/src/picojpeg.c lib/lcdButton/lcdButton.c lib/Sim800l/Sim800l.cpp lib/Sim800l/SIM800L_interface.cpp lib/stm32f4-tm/src/tm_stm32f4_adc.c lib/stm32f4-tm/src/tm_stm32f4_delay.c lib/stm32f4-tm/src/tm_stm32f4_disco.c lib/stm32f4-tm/src/tm_stm32f4_fatfs.c lib/stm32f4-tm/src/tm_stm32f4_gpio.c lib/stm32f4-tm/src/tm_stm32f4_lis302dl_lis3dsh.c lib/stm32f4-tm/src/tm_stm32f4_spi.c lib/stm32f4-tm/src/tm_stm32f4_timer_properties.c lib/stm32f4-tm/src/tm_stm32f4_usart.c lib/stm32f4-tm/src/tm_stm32f4_usb_msc_host.c lib/usb_msc_host/src/usbh_core.c lib/usb_msc_host/src/usbh_hcs.c lib/usb_msc_host/src/usbh_ioreq.c lib/usb_msc_host/src/usbh_msc_bot.c lib/usb_msc_host/src/usbh_msc_core.c lib/usb_msc_host/src/usbh_msc_scsi.c lib/usb_msc_host/src/usbh_stdreq.c lib/usb_msc_host/src/usbh_usr.c lib/usb_msc_host/src/usb_bsp.c lib/usb_msc_host/src/usb_core.c lib/usb_msc_host/src/usb_hcd.c lib/usb_msc_host/src/usb_hcd_int.c lib/utility/utility.c lib/xpt2046-touch/xpt2046.c Src/Audio.c Src/background.c Src/cwMemory.c Src/cwMP3.c Src/cwSoundFile.c Src/cwWave.c Src/main.c Src/stm32f4xx_it.c Src/syscalls.c Src/system_stm32f4xx.c
 EXTERNAL_LIBS := 
 EXTERNAL_LIBS_COPIED := $(foreach lib, $(EXTERNAL_LIBS),$(BINARYDIR)/$(notdir $(lib)))
 
@@ -227,6 +227,10 @@ $(BINARYDIR)/calc.o : lib/apps/calc.c $(all_make_files) |$(BINARYDIR)
 	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
 
 
+$(BINARYDIR)/phone.o : lib/apps/phone.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
 $(BINARYDIR)/player.o : lib/apps/player.c $(all_make_files) |$(BINARYDIR)
 	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
 
@@ -236,6 +240,10 @@ $(BINARYDIR)/display.o : lib/Display/display.c $(all_make_files) |$(BINARYDIR)
 
 
 $(BINARYDIR)/misc.o : lib/driver/src/misc.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
+$(BINARYDIR)/stm32f4xx_adc.o : lib/driver/src/stm32f4xx_adc.c $(all_make_files) |$(BINARYDIR)
 	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
 
 
@@ -367,6 +375,10 @@ $(BINARYDIR)/dev_spi.o : lib/ILI9341/dev_spi.c $(all_make_files) |$(BINARYDIR)
 	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
 
 
+$(BINARYDIR)/FreeMono12pt7b.o : lib/ILI9341/fonts/FreeMono12pt7b.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
 $(BINARYDIR)/FreeMono24pt7b.o : lib/ILI9341/fonts/FreeMono24pt7b.c $(all_make_files) |$(BINARYDIR)
 	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
 
@@ -411,6 +423,18 @@ $(BINARYDIR)/lcdButton.o : lib/lcdButton/lcdButton.c $(all_make_files) |$(BINARY
 	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
 
 
+$(BINARYDIR)/Sim800l.o : lib/Sim800l/Sim800l.cpp $(all_make_files) |$(BINARYDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
+$(BINARYDIR)/SIM800L_interface.o : lib/Sim800l/SIM800L_interface.cpp $(all_make_files) |$(BINARYDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
+$(BINARYDIR)/tm_stm32f4_adc.o : lib/stm32f4-tm/src/tm_stm32f4_adc.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
 $(BINARYDIR)/tm_stm32f4_delay.o : lib/stm32f4-tm/src/tm_stm32f4_delay.c $(all_make_files) |$(BINARYDIR)
 	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
 
@@ -420,6 +444,10 @@ $(BINARYDIR)/tm_stm32f4_disco.o : lib/stm32f4-tm/src/tm_stm32f4_disco.c $(all_ma
 
 
 $(BINARYDIR)/tm_stm32f4_fatfs.o : lib/stm32f4-tm/src/tm_stm32f4_fatfs.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
+$(BINARYDIR)/tm_stm32f4_gpio.o : lib/stm32f4-tm/src/tm_stm32f4_gpio.c $(all_make_files) |$(BINARYDIR)
 	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
 
 
@@ -500,6 +528,10 @@ $(BINARYDIR)/xpt2046.o : lib/xpt2046-touch/xpt2046.c $(all_make_files) |$(BINARY
 
 
 $(BINARYDIR)/Audio.o : Src/Audio.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
+$(BINARYDIR)/background.o : Src/background.c $(all_make_files) |$(BINARYDIR)
 	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
 
 

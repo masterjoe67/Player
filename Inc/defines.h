@@ -31,10 +31,18 @@
 
 /* Put your global defines for all libraries here used in your project */
 
+/* TIM3 is used for background function */
+#define BG_TIM				TIM3
+#define BG_TIM_IRQ			TIM3_IRQn
+#define BG_TIM_IRQ_HANDLER	TIM3_IRQHandler
+
 /* TIM4 is used for delay functions */
 #define TM_DELAY_TIM				TIM4
 #define TM_DELAY_TIM_IRQ			TIM4_IRQn
 #define TM_DELAY_TIM_IRQ_HANDLER	TIM4_IRQHandler
+
+#define TM_USART2_USE_CUSTOM_IRQ
+#define TM_USART2_ReceiveHandler(args...) Sim800l_onSerialDataReceived(args);
 
 /* Uncomment if you want to disable ID pin for USB MSC HOST library */
 //#define USB_MSC_HOST_DISABLE_ID

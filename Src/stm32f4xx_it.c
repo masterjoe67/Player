@@ -169,25 +169,15 @@ void EXTI3_IRQHandler(void)
 	int a = touch_irq;
 }
 
-/******************************************************************************/
-/*                 STM32F4xx Peripherals Interrupt Handlers                   */
-/*  Add here the Interrupt Handler for the used peripheral(s) (PPP), for the  */
-/*  available peripheral interrupt handler's name please refer to the startup */
-/*  file (startup_stm32f4xx.s).                                               */
-/******************************************************************************/
-
-/**
-  * @brief  This function handles PPP interrupt request.
-  * @param  None
-  * @retval None
-  */
-/*void PPP_IRQHandler(void)
+void EXTI9_5_IRQHandler(void)
 {
-}*/
-
-/**
-  * @}
-  */ 
+	if (EXTI_GetITStatus(EXTI_Line6) != RESET)
+	{
+		SIM800_EXTI_IRQHandler;
+		/* Clear the  EXTI line 6 pending bit */
+		EXTI_ClearITPendingBit(EXTI_Line6);
+	}
+}
 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -139,6 +139,18 @@
     <Filter Include="Source files\lib\icons">
       <UniqueIdentifier>{60ff5f47-9c95-45a6-aa46-f5541cd80d5c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header files\lib\Sim800l">
+      <UniqueIdentifier>{5858e7de-7b61-48cd-b858-302e949304c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\lib\Sim800l">
+      <UniqueIdentifier>{9cc85f2a-8940-4f38-b3b5-23f61c4cd980}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\lib\icons\battery">
+      <UniqueIdentifier>{83952cec-b7a8-4dbb-8bd6-3365c23dfd3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\lib\icons\battery">
+      <UniqueIdentifier>{8e389de9-6820-4eeb-98a5-6779f4423d2d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />
@@ -405,6 +417,51 @@
     <ClCompile Include="lib\ILI9341\fonts\FreeMono12pt7b.c">
       <Filter>Source files\lib\ILI9341\fonts</Filter>
     </ClCompile>
+    <ClCompile Include="lib\Sim800l\Sim800l.cpp">
+      <Filter>Source files\lib\Sim800l</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Sim800l\SIM800L_interface.cpp">
+      <Filter>Source files\lib\Sim800l</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\apps\phone.c">
+      <Filter>Source files\lib\app</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\background.c">
+      <Filter>Source files\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_adc.c">
+      <Filter>Source files\lib\tm_stm32f4</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\driver\src\stm32f4xx_adc.c">
+      <Filter>Source files\lib\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_gpio.c">
+      <Filter>Source files\lib\tm_stm32f4</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Icons\battery\battery-1-16.c">
+      <Filter>Source files\lib\icons\battery</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Icons\battery\battery-2-16.c">
+      <Filter>Source files\lib\icons\battery</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Icons\battery\battery-3-16.c">
+      <Filter>Source files\lib\icons\battery</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Icons\battery\battery-charge16.c">
+      <Filter>Source files\lib\icons\battery</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Icons\battery\battery-charged16.c">
+      <Filter>Source files\lib\icons\battery</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Icons\battery\battery-empty16.c">
+      <Filter>Source files\lib\icons\battery</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Icons\battery\battery-full16.c">
+      <Filter>Source files\lib\icons\battery</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Icons\battery\battery-half16.c">
+      <Filter>Source files\lib\icons\battery</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inc\stm32f4xx_conf.h">
@@ -511,9 +568,6 @@
     </ClInclude>
     <ClInclude Include="lib\Display\display.h">
       <Filter>Header files\lib\display</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\Icons\battery_icons.h">
-      <Filter>Header files\lib\icons</Filter>
     </ClInclude>
     <ClInclude Include="lib\Icons\icons_included.h">
       <Filter>Header files\lib\icons</Filter>
@@ -799,6 +853,48 @@
     </ClInclude>
     <ClInclude Include="lib\ILI9341\fonts\fonts.h">
       <Filter>Header files\lib\ILI9341\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Sim800l\Sim800l.h">
+      <Filter>Header files\lib\Sim800l</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Sim800l\SIM800L_interface.h">
+      <Filter>Header files\lib\Sim800l</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\apps\phone.h">
+      <Filter>Header files\lib\app</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\background.h">
+      <Filter>Header files\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_adc.h">
+      <Filter>Header files\lib\tm_stm32f4</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\driver\inc\stm32f4xx_adc.h">
+      <Filter>Header files\lib\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_gpio.h">
+      <Filter>Header files\lib\tm_stm32f4</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\battery\battery-1-16.h">
+      <Filter>Header files\lib\icons\battery</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\battery\battery-2-16.h">
+      <Filter>Header files\lib\icons\battery</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\battery\battery-3-16.h">
+      <Filter>Header files\lib\icons\battery</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\battery\battery-empty16.h">
+      <Filter>Header files\lib\icons\battery</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\battery\battery-full16.h">
+      <Filter>Header files\lib\icons\battery</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\battery\battery-half16.h">
+      <Filter>Header files\lib\icons\battery</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\driver\inc\stm32f4xx_exti.h">
+      <Filter>Header files\lib\driver</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

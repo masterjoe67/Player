@@ -39,11 +39,12 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "defines.h"
+#include "phone.h"
+#include "SIM800L_interface.h"
 
-/* Exported types ------------------------------------------------------------*/
-/* Exported constants --------------------------------------------------------*/
-/* Exported macro ------------------------------------------------------------*/
-/* Exported functions ------------------------------------------------------- */
+#define SIM800_EXTI_IRQHandler onIncomingCall();
+
+
 void MP3_Player();
 
 

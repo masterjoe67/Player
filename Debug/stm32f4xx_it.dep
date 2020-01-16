@@ -23,4 +23,30 @@ Debug/stm32f4xx_it.o: Src/stm32f4xx_it.c Inc/stm32f4xx_it.h \
  lib/driver/inc/stm32f4xx_rng.h lib/driver/inc/stm32f4xx_can.h \
  lib/driver/inc/stm32f4xx_dac.h lib/driver/inc/stm32f4xx_dcmi.h \
  lib/driver/inc/stm32f4xx_fsmc.h Inc/main.h Inc/defines.h \
- lib/stm32f4-tm/inc/tm_stm32f4_spi.h Inc/defines.h Inc/attributes.h
+ lib/stm32f4-tm/inc/tm_stm32f4_spi.h Inc/defines.h lib/apps/phone.h \
+ lib/Sim800l/SIM800L_interface.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\stdlib.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\ieeefp.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\_ansi.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\newlib.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\config.h \
+ c:\sysgcc\arm-eabi\lib\gcc\arm-eabi\7.2.0\include\stddef.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\reent.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\_ansi.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\_types.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\_types.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\lock.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\cdefs.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\stdlib.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\alloca.h \
+ c:\sysgcc\arm-eabi\lib\gcc\arm-eabi\7.2.0\include\stdbool.h \
+ lib/ILI9341/ili9341_graph.h lib/ILI9341/ili9341_spi.h \
+ lib/ILI9341/dev_spi.h c:\sysgcc\arm-eabi\arm-eabi\sys-include\string.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\_locale.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\string.h \
+ lib/ILI9341/ili9341_commands.h lib/ILI9341/ili9341_core.h \
+ lib/ILI9341/ili9341_text.h lib/ILI9341/ili9341_graph.h \
+ lib/ILI9341/fonts/glcdfont.h lib/xpt2046-touch/xpt2046.h \
+ lib/ILI9341/fonts/fonts.h lib/ILI9341/fonts/FreeMono9pt7b.h \
+ lib/ILI9341/fonts/FreeMono12pt7b.h lib/ILI9341/fonts/FreeMono24pt7b.h \
+ lib/ILI9341/fonts/FreeMonoBold18pt7b.h Inc/attributes.h

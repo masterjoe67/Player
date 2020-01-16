@@ -58,4 +58,12 @@ Debug/cwMP3.o: Src/cwMP3.c \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\stdlib.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\stdlib.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\alloca.h Inc/main.h \
- Inc/defines.h
+ Inc/defines.h lib/apps/phone.h lib/Sim800l/SIM800L_interface.h \
+ lib/ILI9341/ili9341_graph.h lib/ILI9341/ili9341_spi.h \
+ lib/ILI9341/dev_spi.h lib/ILI9341/ili9341_commands.h \
+ lib/ILI9341/ili9341_core.h lib/ILI9341/ili9341_text.h \
+ lib/ILI9341/ili9341_graph.h lib/ILI9341/fonts/glcdfont.h \
+ lib/xpt2046-touch/xpt2046.h lib/ILI9341/fonts/fonts.h \
+ lib/ILI9341/fonts/FreeMono9pt7b.h lib/ILI9341/fonts/FreeMono12pt7b.h \
+ lib/ILI9341/fonts/FreeMono24pt7b.h \
+ lib/ILI9341/fonts/FreeMonoBold18pt7b.h

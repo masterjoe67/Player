@@ -21,7 +21,9 @@
 #include "xpt2046.h"
 #include "calc.h"
 #include "player.h"
-#include "FreeMono24pt7b.h"
+#include "fonts.h"
+#include "background.h"
+#include "phone.h"
 
 uint8_t state = 0;
 void hwInit();
@@ -60,10 +62,10 @@ int main(void) {
 	
 	LCD_writeString("CIAO come va");*/
 	
+	phoneInit();
 	
 	
-	
-	//Delayms(50000);
+	Delayms(5000);
 
 	
 	xpt2046_init();
@@ -128,16 +130,19 @@ void hwInit() {
 		while(1) {}
 ;
 	}
-	// Initialise delay Systick timer
-	TM_DELAY_Init();
 	// Initialise leds on board
 	TM_DISCO_LedInit();
+	// Initialise delay Systick timer
+	TM_DELAY_Init();
+	// Initialize background timer
+	BG_Init();
 	//Initialise USART2 at 115200 baud, TX: PA2, RX: PA3
 	TM_USART_Init(USART2, TM_USART_PinsPack_1, 115200);
 	// Initialize button on board
 	TM_DISCO_ButtonInit();
 	/* Initialize USB MSC HOST */
 	TM_USB_MSCHOST_Init();
+	
     
 //	/* Detect proper device */
 //	if (TM_LIS302DL_LIS3DSH_Detect() == TM_LIS302DL_LIS3DSH_Device_LIS302DL) {

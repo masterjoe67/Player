@@ -1420,6 +1420,10 @@
 //lib\lcdButton
 //lib\xpt2046-touch
 //lib\JPEGDecoder\src
+//lib\Icons\cell
+//lib\apps
+//lib\ILI9341\fonts
+//lib\utility
 // --- Include directories end --- //
 
 

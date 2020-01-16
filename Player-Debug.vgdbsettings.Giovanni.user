@@ -58,8 +58,8 @@
         <IsCollapsed>false</IsCollapsed>
       </LiveVariable>
       <LiveVariable>
-        <Expression>cursorY</Expression>
-        <Type>HexInt16</Type>
+        <Expression>VBAT</Expression>
+        <Type>UInt16</Type>
         <Enabled>true</Enabled>
         <Breakpoint>
           <ComparisonMode>Equals</ComparisonMode>

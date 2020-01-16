@@ -45,4 +45,4 @@ FRESULT slideshow();
 //FRESULT mediaplayer();
 //FRESULT IndexFileNames();
 int getButtonNumber(int xInput, int yInput);
-//uint8_t playerControl();
+void battery_helper();

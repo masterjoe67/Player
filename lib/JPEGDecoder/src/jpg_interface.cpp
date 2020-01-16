@@ -6,7 +6,7 @@ extern "C" {
 #endif
 
 	wJPEGDecoder*   JPEGDecoder_create() {
-		//calling the constructor and casting the pointer to WRectangle
+		//calling the constructor and casting the pointer to wJPEGDecoder
 		return reinterpret_cast<wJPEGDecoder*>(new JPEGDecoder());
 	}
 	
@@ -16,15 +16,15 @@ extern "C" {
 	}
 	int JpegDec_decodeSdFile(const char *pFilename) {
 		return JpegDec.decodeSdFile(pFilename);
-		//return reinterpret_cast<JPEGDecoder*>(*pFilename)->decodeSdFile(pFilename);
+	
 	}
 	int JpegDec_read(){
 		return JpegDec.read();
-		//return reinterpret_cast<JPEGDecoder*>()->read();
+		
 	}
 	void JpegDec_abort(){
 		JpegDec.abort();
-		//return reinterpret_cast<JPEGDecoder*>()->abort();
+		
 	}
 	
 	

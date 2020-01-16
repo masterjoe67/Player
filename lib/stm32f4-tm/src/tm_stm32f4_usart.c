@@ -721,7 +721,8 @@ void USART2_IRQHandler(void) {
 	if (USART_GetITStatus(USART2, USART_IT_RXNE)) {
 		#ifdef TM_USART2_USE_CUSTOM_IRQ
 			//Call user function
-			TM_USART2_ReceiveHandler(USART2->DR);
+			//TM_USART2_ReceiveHandler(0);
+			TM_USART2_ReceiveHandler(0);
 		#else 
 			//Put received data into internal buffer
 			TM_USART_INT_InsertToBuffer(&TM_USART2, USART2->DR);

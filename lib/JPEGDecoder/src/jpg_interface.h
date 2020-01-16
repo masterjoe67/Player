@@ -1,8 +1,6 @@
 #pragma once
 
 
-
-//int	wMCUWidth = JpegDec.MCUWidth;
 #ifdef __cplusplus
 extern "C" {
 #endif

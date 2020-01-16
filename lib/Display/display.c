@@ -16,6 +16,7 @@
 #include "ili9341_graph.h"
 #include "Audio.h"
 #include "utility.h"
+#include "background.h"
 
 #pragma GCC push_options
 #pragma GCC optimize ("O0")
@@ -52,41 +53,7 @@ const int ystartButtonMain[] = { 30, 30, 30, 30, 162, 162, 162, 162 };          
 const int widthButton = 16;
 const int heightButton = 24;
 
-/*bool searchUSB() {
-	LCD_fillScreen(BLACK);
-	
-	LCD_setTextSize(3);
-	LCD_setTextColor(WHITE);
-	LCD_setTextBgColor(BLACK);
-	LCD_setCursor(50, 100);
-	LCD_writeString("ATTENDERE");
 
-	uint32_t curtime = TM_Time + SEARCH_TIMEOUT;
-	
-	while (curtime > TM_Time)
-	{
-		if (TM_USB_MSCHOST_Device() != TM_USB_MSCHOST_Result_Connected)
-		{
-			TM_USB_MSCHOST_Process();
-		}
-		else return true;
-	}
-	LCD_fillScreen(BLACK);
-	LCD_writeString("USB NON TROVATO");
-	LCD_setCursor(50, 120);
-	LCD_writeString("TOCCARE PER USCIRE");
-
-	while (!TouchPressed()) ;
-	return false;
-	
-	
-}
-
-const char *GetFilenameExt(const char *filename) {
-	const char *dot = strrchr(filename, '.');
-	if (!dot || dot == filename) return "";
-	return dot + 1;
-}*/
 
 int getButtonNumber(int xInput, int yInput)
 {
@@ -178,6 +145,33 @@ int getButtonNumber(int xInput, int yInput)
 	return -1;
 }
 
+uint8_t battery_level = 0;
+
+void battery_helper()
+{
+	switch (battery_level)
+	{
+	case 0: 
+		LCD_drawRGBBitmap(250, 2, (uint16_t *)image_data_batteryempty16, 16, 16);
+		break;
+	case 1: 
+		LCD_drawRGBBitmap(250, 2, (uint16_t *)image_data_battery116, 16, 16);
+		break;
+	case 2: 
+		LCD_drawRGBBitmap(250, 2, (uint16_t *)image_data_battery216, 16, 16);
+		break;
+	case 3: 
+		LCD_drawRGBBitmap(250, 2, (uint16_t *)image_data_batteryhalf16, 16, 16);
+		break;
+	case 4: 
+		LCD_drawRGBBitmap(250, 2, (uint16_t *)image_data_battery316, 16, 16);
+		break;
+	case 5: 
+		LCD_drawRGBBitmap(250, 2, (uint16_t *)image_data_batteryfull16, 16, 16);
+		break;
+	}
+}
+
 
 void exit_btn_helper()
 {
@@ -188,6 +182,7 @@ void exit_btn_helper()
 uint8_t Display_mainMenu()
 {
 	mode = 0;
+	vbat_refresh = false;
 	LCD_fillScreen(BLACK);
 
 	int i = 0;
@@ -215,7 +210,8 @@ uint8_t Display_mainMenu()
 	BTN_icon_initUL(&but_icon[i], xstartButtonMain[i], ystartButtonMain[i], widthButtonMain, heightButtonMain, (uint16_t *)image_data_AppsPlayerAudioCicon);
 	BTN_icon_draw(&but_icon[i]); 
 
-	
+	battery_helper();
+	uint8_t oldlevel = battery_level;
 	/* Infinite loop */
 	for (;;)
 	{
@@ -259,6 +255,12 @@ uint8_t Display_mainMenu()
 				}
 			}
 		}
+		if (battery_level != oldlevel)
+		{
+			oldlevel = battery_level;
+			battery_helper();
+		}
+			
 		Delayms(5);
 	}
 	
@@ -595,346 +597,7 @@ USB_OK:
 	
 }
 
-/*void btn_play_stop_helper(uint8_t status)
-{
-	if (status == PLAY_STATUS)
-	{
-		LCD_drawRGBBitmap(125, 110, (uint16_t *)image_data_pause, 48, 48);
-	}
-	else
-	{
-		LCD_drawRGBBitmap(125, 110, (uint16_t *)image_data_play, 48, 48);
-		
-	}
-	
-}
 
-void btn_mute_helper()
-{
-	if (muteStatus == 0)
-	{
-		LCD_drawRGBBitmap(216, 64, (uint16_t *)image_data_mute, 48, 48);
-	}
-	else
-	{
-		LCD_drawRGBBitmap(216, 64, (uint16_t *)image_data_music, 48, 48);
-		
-	}
-	
-}
-
-int map(int x, int in_min, int in_max, int out_min, int out_max)
-{
-	return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-}
-
-void volumeBar_helper(u16 pos)
-{
-	int y = map(pos, 255, 0, 64, 182);
-	if (vol_cursor_last > 0)
-		LCD_fillRect(295, vol_cursor_last, 22, 8, BLACK);
-	LCD_fillRect(295, y, 22, 8, MAGENTA);
-	vol_cursor_last = y;
-}
-
-
-uint8_t playerControl()
-{
-	int userInput = -1;
-	if (TouchPressed())
-	{
-		getDisplayPoint(&display, Read_Value(), &matrix);
-		if (display.x > 0 && display.x<320 && display.y>0 && display.y < 240 && (TM_Time - lastTouch) > 800) 
-		{
-			lastTouch = TM_Time;
-			userInput = getButtonNumber(display.x, display.y);
-			if (userInput == btn_play_ret && player_status == PLAY_STATUS)
-			{
-				Audio_Pause();
-				player_status = PAUSE_STATUS;
-				btn_play_stop_helper(player_status);
-				return 0;
-			}
-			else if (userInput == btn_play_ret && player_status == PAUSE_STATUS) {
-				
-				player_status = PLAY_STATUS;
-				btn_play_stop_helper(player_status);
-				muteStatus = 0;
-				btn_mute_helper();
-				Audio_Resume();
-				return 0;
-			}
-			else if (userInput == btn_incvol_ret && player_status == PLAY_STATUS) {
-				if (volume < 0xff)
-				{
-					volume += 10;
-					if (volume > 0xff) volume = 0xff;
-					SetAudioVolume(volume);
-					volumeBar_helper(volume);
-				}
-				return 0;
-			}
-			else if (userInput == btn_decvol_ret && player_status == PLAY_STATUS) {
-				if (volume > 0x00)
-				{
-					volume -= 0x0a;
-					if (volume < 0) volume = 0x00;
-					SetAudioVolume(volume);
-					volumeBar_helper(volume);
-				}
-				return 0;
-			}
-			else if (userInput == btn_mute_ret && player_status == PLAY_STATUS) {
-				if (muteStatus == 0)
-				{
-					Audio_SetMute(1);
-					muteStatus = 1;
-					btn_mute_helper();
-				}
-				else
-				{
-					Audio_SetMute(0);
-					muteStatus = 0;
-					btn_mute_helper();
-				}
-				return 0;
-			}
-			else if (userInput == btn_prev_ret && currentSong > 1) {
-				
-				currentSong--;
-				return 2;
-			}
-			else if (userInput == btn_next_ret && currentSong < maxmidicount) {
-				
-				currentSong++;
-				return 3;
-			}
-			else if (userInput == btn_exit_ret) {
-				
-				return 1;
-			}
-		}
-	}
-	return 0;
-}
-
-uint8_t Display_playerMenu(char* filename)
-{
-	char name[20];
-	unsigned char *label;
-	
-	mode = modeMP3;
-	LCD_fillScreen(BLACK);
-	LCD_drawFastHLine(0, 28, 319, MAGENTA);
-	LCD_drawFastHLine(0, 29, 319, MAGENTA);
-	
-	BTN_initUL(&btn_exit, 32, 64, 48, 48, WHITE, BLUE, WHITE, "", 8, 8);	
-	BTN_initUL(&btn_play_stop, 127, 87, 48, 48, WHITE, GREEN, WHITE, "", 4, 4);
-	BTN_initUL(&btn_mute, 216, 64, 48, 48, WHITE, YELLOW, WHITE, "", 8, 8);
-	BTN_initUL(&btn_incvol, 293, 32, 26, 26, MAGENTA, BLACK, WHITE, "", 2, 2);	
-	BTN_initUL(&btn_decvol, 293, 198, 26, 26, MAGENTA, BLACK, WHITE, "", 2, 2);
-	BTN_initUL(&btn_prev, 32, 154, 48, 48, MAGENTA, BLACK, WHITE, "", 2, 2);	
-	BTN_initUL(&btn_next, 216, 154, 48, 48, MAGENTA, BLACK, WHITE, "", 2, 2);
-
-	LCD_drawRGBBitmap(125, 110, (uint16_t *)image_data_pause, 48, 48);
-	LCD_drawRGBBitmap(32, 64, (uint16_t *)image_data_circ_menu, 48, 48);
-	LCD_drawRGBBitmap(216, 64, (uint16_t *)image_data_mute, 48, 48);
-	LCD_drawRGBBitmap(32, 154, (uint16_t *)image_data_prev, 48, 48);
-	LCD_drawRGBBitmap(216, 154, (uint16_t *)image_data_next, 48, 48);
-	
-	
-	//  Titolo	
-		memcpy(name, filename, 20);
-	label = name;
-	label += 3;
-	LCD_setCursor((296 / 2) - (strlen(label) * 3 * 2), 8);
-	LCD_setTextColor(RED);
-	LCD_setTextSize(2);
-	LCD_writeString((unsigned char*)label);
-	
-	//  Volume
-		LCD_drawFastVLine(293, 56, 143, MAGENTA);
-	LCD_drawFastVLine(319, 56, 143, MAGENTA);
-	LCD_drawRGBBitmap(292, 33, (uint16_t *)image_data_audio100, 24, 24);
-	LCD_drawRGBBitmap(292, 199, (uint16_t *)image_data_audio0, 24, 24);
-	volumeBar_helper(volume);
-	muteStatus = 0;
-	
-	
-	return cwMP3PlayFile(filename);
-	
-}
-
-void list_helper(u16 pos, u32 numFiles)
-{
-	char filename[20];
-	unsigned char *label;
-	u8 textsize = 2;
-	
-	LCD_fillRect(0, 32, 296, 207, BLACK);
-	
-	for (int y = 0; y < numFiles; y++)
-	{
-		BTN_initUL(&buttons[y], xstartButtonList[y], ystartButtonList[y], 32, 32, WHITE, BLACK, WHITE, "A", 2, 2);
-		BTN_draw(&buttons[y], 0);
-		BTN_initUL(&buttons[y + 6], 32, ystartButtonList[y], 264, 32, WHITE, BLACK, WHITE, "", 2, 2);
-		BTN_draw(&buttons[y + 6], 0);
-		
-		memcpy(filename, nameFiles[y + 1 + pos], 20);
-		label = filename;
-		label += 3;
-
-		LCD_setCursor(32 + 132 - (strlen(filename) * 3 * textsize),
-			ystartButtonList[y] + 16 - (4 * textsize));
-		LCD_setTextColor(GREEN);
-		LCD_setTextSize(textsize);
-		LCD_writeString(label);
-	
-		
-	} 
-}
-
-void scollBar_helper(u16 pos, u32 numFiles)
-{
-	if (pos > 0)
-		BTN_initUL(&btn_pgup, 297, 32, 22, 32, WHITE, BLACK, WHITE, "A", 2, 2);	
-	else
-		BTN_initUL(&btn_pgup, 297, 32, 22, 32, WHITE, BLACK, DGRAY, "A", 2, 2);
-	if (numFiles > 5 && (maxmidicount - pos) > 6)
-		BTN_initUL(&btn_pgdown, 297, 192, 22, 32, WHITE, BLACK, WHITE, "V", 2, 2);		
-	else
-		BTN_initUL(&btn_pgdown, 297, 192, 22, 32, WHITE, BLACK, DGRAY, "V", 2, 2);
-	BTN_draw(&btn_pgup, 0);
-	BTN_draw(&btn_pgdown, 0);
-}
-
-void Display_list_of_songs() {
-	u16 numFiles;
-	u32 minFile = 0;
-	FATFS USB_Fs;
-	FRESULT res;
-	FILINFO fno;
-	//char label[20];
-	const char* path = "1:";
-	//FIL pInFile;
-	char filename[20];
-	//uint8_t result = 0;
-	
-	
-#if _USE_LFN
-	static char lfn[_MAX_LFN + 1];
-	fno.lfname = lfn;
-	fno.lfsize = sizeof(lfn);
-#endif
-redraw:	
-	mode = modeMP3sel;
-	res = f_mount(&USB_Fs, "1:", 1);
-	if (res != FR_OK)
-		return;
-	res = f_opendir(&dir, path); 
-	
-	if ((maxmidicount - minFile) < 6) 
-		numFiles = maxmidicount - minFile;
-	else
-		numFiles = 6;
-	
-
-	LCD_fillScreen(BLACK);
-	
-	LCD_drawFastHLine(0, 28, 319, YELLOW);
-	LCD_drawFastHLine(0, 29, 319, YELLOW);
-	
-	
-	
-	list_helper(minFile, numFiles);
-	
-	
-	LCD_drawRoundRect(297, 32, 22, 192, 8, WHITE);
-		
-	scollBar_helper(minFile, numFiles);
-	exit_btn_helper();
-		
-	/* Infinite loop 
-	for (;;)
-	{
-
-		if (TouchPressed())
-		{
-			getDisplayPoint(&display, Read_Value(), &matrix);
-
-			
-			
-			int userInput = -1; 
-			userInput = getButtonNumber(display.x, display.y);
-			if (userInput >= 0)
-			{
-				switch (userInput)
-				{
-				case btn_exit_ret:
-					if ((TM_Time - lastTouch) > 1000)
-						return;
-					lastTouch = TM_Time;
-					break;
-				case btn_pgup_ret:
-					if (minFile > 0)
-					{
-						minFile--;
-						numFiles = maxmidicount - minFile;
-						if (numFiles > 6) numFiles = 6;
-						list_helper(minFile, numFiles);
-						scollBar_helper(minFile, numFiles);
-					}
-					break;
-				case btn_pgdown_ret:
-					if (minFile < maxmidicount && (maxmidicount - minFile) > 6)
-					{
-						minFile++;
-						numFiles = maxmidicount - minFile;
-						if (numFiles > 6) numFiles = 6;
-						list_helper(minFile, numFiles);
-						scollBar_helper(minFile, numFiles);
-					}
-					break;
-				case btn_song_ret_1:
-				case btn_song_ret_2:
-				case btn_song_ret_3:
-				case btn_song_ret_4:
-				case btn_song_ret_5:
-				case btn_song_ret_6:
-					currentSong = (userInput & 0x0f) + 1 + minFile;
-					memcpy(filename, nameFiles[currentSong], 20);
-
-					
-play_next_prev:					
-					res = Display_playerMenu(filename);
-					if (res == ret_toList)
-						goto redraw;
-					if (res == ret_prev || res == ret_next)
-					{
-						memcpy(filename, nameFiles[currentSong], 20);
-						goto play_next_prev;
-					}
-				
-					break;
-				}
-			}
-		}
-		Delayms(5);
-	}
-}
-
-FRESULT mediaplayer() {
-	
-	
-	if (!searchUSB()) return 1;
-	IndexFileNames();
-	
-	Display_list_of_songs();
-	
-	
-	return 0;
-}
-*/
 	
 #pragma GCC pop_options
 

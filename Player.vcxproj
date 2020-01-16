@@ -46,7 +46,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <NMakeIncludeSearchPath>.;$(TOOLCHAIN_ROOT)\arm-eabi\include\c++\7.2.0;$(TOOLCHAIN_ROOT)\arm-eabi\include\c++\7.2.0\arm-eabi\thumb\cortex_m4;$(TOOLCHAIN_ROOT)\arm-eabi\include\c++\7.2.0\backward;$(TOOLCHAIN_ROOT)\lib\gcc\arm-eabi\7.2.0\include;$(TOOLCHAIN_ROOT)\lib\gcc\arm-eabi\7.2.0\include-fixed;$(TOOLCHAIN_ROOT)\arm-eabi\sys-include;$(TOOLCHAIN_ROOT)\arm-eabi\include;Inc;lib\cmsis\device\inc;lib\cmsis\inc;lib\driver\inc;lib\stm32f4-tm\inc;lib\fatfs;lib\usb_msc_host\inc;lib\helix\pub;lib\helix\real;lib\fatfs\drivers;lib\ILI9341;lib\Display;lib\Icons;lib\Images;lib\lcdButton;lib\xpt2046-touch;lib\JPEGDecoder\src;lib\Icons;lib\Icons\cell;lib\apps;lib\ILI9341\fonts;lib\utility;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeIncludeSearchPath>.;$(TOOLCHAIN_ROOT)\arm-eabi\include\c++\7.2.0;$(TOOLCHAIN_ROOT)\arm-eabi\include\c++\7.2.0\arm-eabi\thumb\cortex_m4;$(TOOLCHAIN_ROOT)\arm-eabi\include\c++\7.2.0\backward;$(TOOLCHAIN_ROOT)\lib\gcc\arm-eabi\7.2.0\include;$(TOOLCHAIN_ROOT)\lib\gcc\arm-eabi\7.2.0\include-fixed;$(TOOLCHAIN_ROOT)\arm-eabi\sys-include;$(TOOLCHAIN_ROOT)\arm-eabi\include;Inc;lib\cmsis\device\inc;lib\cmsis\inc;lib\driver\inc;lib\stm32f4-tm\inc;lib\fatfs;lib\usb_msc_host\inc;lib\helix\pub;lib\helix\real;lib\fatfs\drivers;lib\ILI9341;lib\Display;lib\Icons;lib\Images;lib\lcdButton;lib\xpt2046-touch;lib\JPEGDecoder\src;lib\Icons\cell;lib\apps;lib\ILI9341\fonts;lib\utility;lib\Sim800l;lib\Icons\battery;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
     <NMakeForcedIncludes>$(ProjectDir)\gcc_Debug.h;$(VISUALGDB_DIR)\gcc_compat.h;$(BSP_ROOT)\stm32_compat.h;$(NMakeForcedIncludes)</NMakeForcedIncludes>
     <NMakeBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /build "$(ProjectPath)" "/solution:$(SolutionPath)"  "/config:$(Configuration)" "/platform:$(Platform)"</NMakeBuildCommandLine>
     <NMakeCleanCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /clean "$(ProjectPath)" "/solution:$(SolutionPath)"  "/config:$(Configuration)" "/platform:$(Platform)"</NMakeCleanCommandLine>
@@ -79,9 +79,11 @@
   <ItemGroup />
   <ItemGroup>
     <ClCompile Include="lib\apps\calc.c" />
+    <ClCompile Include="lib\apps\phone.c" />
     <ClCompile Include="lib\apps\player.c" />
     <ClCompile Include="lib\Display\display.c" />
     <ClCompile Include="lib\driver\src\misc.c" />
+    <ClCompile Include="lib\driver\src\stm32f4xx_adc.c" />
     <ClCompile Include="lib\driver\src\stm32f4xx_dma.c" />
     <ClCompile Include="lib\driver\src\stm32f4xx_exti.c" />
     <ClCompile Include="lib\driver\src\stm32f4xx_gpio.c" />
@@ -111,6 +113,14 @@
     <ClCompile Include="lib\helix\real\stproc.c" />
     <ClCompile Include="lib\helix\real\subband.c" />
     <ClCompile Include="lib\helix\real\trigtabs_fixpt.c" />
+    <ClCompile Include="lib\Icons\battery\battery-1-16.c" />
+    <ClCompile Include="lib\Icons\battery\battery-2-16.c" />
+    <ClCompile Include="lib\Icons\battery\battery-3-16.c" />
+    <ClCompile Include="lib\Icons\battery\battery-charge16.c" />
+    <ClCompile Include="lib\Icons\battery\battery-charged16.c" />
+    <ClCompile Include="lib\Icons\battery\battery-empty16.c" />
+    <ClCompile Include="lib\Icons\battery\battery-full16.c" />
+    <ClCompile Include="lib\Icons\battery\battery-half16.c" />
     <ClCompile Include="lib\Icons\battery_icons.c" />
     <ClCompile Include="lib\Icons\icon.c" />
     <ClCompile Include="lib\ILI9341\dev_spi.c" />
@@ -126,9 +136,13 @@
     <ClCompile Include="lib\JPEGDecoder\src\jpg_interface.cpp" />
     <ClCompile Include="lib\JPEGDecoder\src\picojpeg.c" />
     <ClCompile Include="lib\lcdButton\lcdButton.c" />
+    <ClCompile Include="lib\Sim800l\Sim800l.cpp" />
+    <ClCompile Include="lib\Sim800l\SIM800L_interface.cpp" />
+    <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_adc.c" />
     <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_delay.c" />
     <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_disco.c" />
     <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_fatfs.c" />
+    <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_gpio.c" />
     <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_lis302dl_lis3dsh.c" />
     <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_spi.c" />
     <ClCompile Include="lib\stm32f4-tm\src\tm_stm32f4_timer_properties.c" />
@@ -149,6 +163,7 @@
     <ClCompile Include="lib\utility\utility.c" />
     <ClCompile Include="lib\xpt2046-touch\xpt2046.c" />
     <ClCompile Include="Src\Audio.c" />
+    <ClCompile Include="Src\background.c" />
     <ClCompile Include="Src\cwMemory.c" />
     <ClCompile Include="Src\cwMP3.c" />
     <ClCompile Include="Src\cwSoundFile.c" />
@@ -159,6 +174,7 @@
     <ClCompile Include="Src\system_stm32f4xx.c" />
     <ClInclude Include="Inc\attributes.h" />
     <ClInclude Include="Inc\Audio.h" />
+    <ClInclude Include="Inc\background.h" />
     <ClInclude Include="Inc\cwMemory.h" />
     <ClInclude Include="Inc\cwMP3.h" />
     <ClInclude Include="Inc\cwSoundFile.h" />
@@ -169,11 +185,14 @@
     <ClInclude Include="Inc\stm32f4xx_it.h" />
     <ClInclude Include="Inc\system_stm32f4xx.h" />
     <ClInclude Include="lib\apps\calc.h" />
+    <ClInclude Include="lib\apps\phone.h" />
     <ClInclude Include="lib\apps\player.h" />
     <ClInclude Include="lib\cmsis\device\inc\stm32f4xx.h" />
     <ClInclude Include="lib\Display\display.h" />
     <ClInclude Include="lib\driver\inc\misc.h" />
+    <ClInclude Include="lib\driver\inc\stm32f4xx_adc.h" />
     <ClInclude Include="lib\driver\inc\stm32f4xx_dma.h" />
+    <ClInclude Include="lib\driver\inc\stm32f4xx_exti.h" />
     <ClInclude Include="lib\driver\inc\stm32f4xx_gpio.h" />
     <ClInclude Include="lib\driver\inc\stm32f4xx_rcc.h" />
     <ClInclude Include="lib\driver\inc\stm32f4xx_sdio.h" />
@@ -185,7 +204,12 @@
     <ClInclude Include="lib\fatfs\drivers\fatfs_usb.h" />
     <ClInclude Include="lib\fatfs\ff.h" />
     <ClInclude Include="lib\helix\pub\mp3dec.h" />
-    <ClInclude Include="lib\Icons\battery_icons.h" />
+    <ClInclude Include="lib\Icons\battery\battery-1-16.h" />
+    <ClInclude Include="lib\Icons\battery\battery-2-16.h" />
+    <ClInclude Include="lib\Icons\battery\battery-3-16.h" />
+    <ClInclude Include="lib\Icons\battery\battery-empty16.h" />
+    <ClInclude Include="lib\Icons\battery\battery-full16.h" />
+    <ClInclude Include="lib\Icons\battery\battery-half16.h" />
     <ClInclude Include="lib\Icons\cell\Apps-Calc-icon.h" />
     <ClInclude Include="lib\Icons\cell\Apps-Clock-icon.h" />
     <ClInclude Include="lib\Icons\cell\Apps-Gallery-icon.h" />
@@ -277,9 +301,13 @@
     <ClInclude Include="lib\JPEGDecoder\src\picojpeg.h" />
     <ClInclude Include="lib\JPEGDecoder\src\User_Config.h" />
     <ClInclude Include="lib\lcdButton\lcdButton.h" />
+    <ClInclude Include="lib\Sim800l\Sim800l.h" />
+    <ClInclude Include="lib\Sim800l\SIM800L_interface.h" />
+    <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_adc.h" />
     <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_delay.h" />
     <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_disco.h" />
     <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_fatfs.h" />
+    <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_gpio.h" />
     <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_lis302dl_lis3dsh.h" />
     <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_spi.h" />
     <ClInclude Include="lib\stm32f4-tm\inc\tm_stm32f4_timer_properties.h" />
