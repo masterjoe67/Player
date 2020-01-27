@@ -51,4 +51,5 @@ Debug/calc.o: lib/apps/calc.c lib/apps/calc.h lib/lcdButton/lcdButton.h \
  lib/stm32f4-tm/inc/tm_stm32f4_timer_properties.h \
  lib/ILI9341/fonts/fonts.h lib/ILI9341/fonts/FreeMono9pt7b.h \
  lib/ILI9341/fonts/FreeMono12pt7b.h lib/ILI9341/fonts/FreeMono24pt7b.h \
+ lib/ILI9341/fonts/FreeMonoBold12pt7b.h \
  lib/ILI9341/fonts/FreeMonoBold18pt7b.h

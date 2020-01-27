@@ -365,6 +365,7 @@ redraw:
 				{
 				case btn_exit_ret:
 					if ((TM_Time - lastTouch) > 1000)
+						__disable_irq();
 						return;
 					lastTouch = TM_Time;
 					break;

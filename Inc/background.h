@@ -8,6 +8,9 @@
 
 uint16_t VBAT;
 uint8_t battery_level;
+uint8_t RSSI;
+uint8_t rssi_level;
+bool LONG_CYCLE_Flag;
 
 bool vbat_refresh;
 void BG_Init(void);

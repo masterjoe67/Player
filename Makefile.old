@@ -60,7 +60,7 @@ error:
 	$(error Invalid configuration, please check your inputs)
 endif
 
-SOURCEFILES := lib/apps/calc.c lib/apps/phone.c lib/apps/player.c lib/Display/display.c lib/driver/src/misc.c lib/driver/src/stm32f4xx_adc.c lib/driver/src/stm32f4xx_dma.c lib/driver/src/stm32f4xx_exti.c lib/driver/src/stm32f4xx_gpio.c lib/driver/src/stm32f4xx_rcc.c lib/driver/src/stm32f4xx_sdio.c lib/driver/src/stm32f4xx_spi.c lib/driver/src/stm32f4xx_syscfg.c lib/driver/src/stm32f4xx_tim.c lib/driver/src/stm32f4xx_usart.c lib/fatfs/diskio.c lib/fatfs/drivers/fatfs_sd.c lib/fatfs/drivers/fatfs_sd_sdio.c lib/fatfs/drivers/fatfs_usb.c lib/fatfs/ff.c lib/helix/mp3dec.c lib/helix/mp3tabs.c lib/helix/real/bitstream.c lib/helix/real/buffers.c lib/helix/real/dct32.c lib/helix/real/dequant.c lib/helix/real/dqchan.c lib/helix/real/huffman.c lib/helix/real/hufftabs.c lib/helix/real/imdct.c lib/helix/real/polyphase.c lib/helix/real/scalfact.c lib/helix/real/stproc.c lib/helix/real/subband.c lib/helix/real/trigtabs_fixpt.c lib/Icons/battery_icons.c lib/Icons/icon.c lib/ILI9341/dev_spi.c lib/ILI9341/fonts/FreeMono12pt7b.c lib/ILI9341/fonts/FreeMono24pt7b.c lib/ILI9341/fonts/FreeMono9pt7b.c lib/ILI9341/fonts/FreeMonoBold18pt7b.c lib/ILI9341/ili9341_core.c lib/ILI9341/ili9341_graph.c lib/ILI9341/ili9341_spi.c lib/ILI9341/ili9341_text.c lib/JPEGDecoder/src/JPEGDecoder.cpp lib/JPEGDecoder/src/jpg_interface.cpp lib/JPEGDecoder/src/picojpeg.c lib/lcdButton/lcdButton.c lib/Sim800l/Sim800l.cpp lib/Sim800l/SIM800L_interface.cpp lib/stm32f4-tm/src/tm_stm32f4_adc.c lib/stm32f4-tm/src/tm_stm32f4_delay.c lib/stm32f4-tm/src/tm_stm32f4_disco.c lib/stm32f4-tm/src/tm_stm32f4_fatfs.c lib/stm32f4-tm/src/tm_stm32f4_gpio.c lib/stm32f4-tm/src/tm_stm32f4_lis302dl_lis3dsh.c lib/stm32f4-tm/src/tm_stm32f4_spi.c lib/stm32f4-tm/src/tm_stm32f4_timer_properties.c lib/stm32f4-tm/src/tm_stm32f4_usart.c lib/stm32f4-tm/src/tm_stm32f4_usb_msc_host.c lib/usb_msc_host/src/usbh_core.c lib/usb_msc_host/src/usbh_hcs.c lib/usb_msc_host/src/usbh_ioreq.c lib/usb_msc_host/src/usbh_msc_bot.c lib/usb_msc_host/src/usbh_msc_core.c lib/usb_msc_host/src/usbh_msc_scsi.c lib/usb_msc_host/src/usbh_stdreq.c lib/usb_msc_host/src/usbh_usr.c lib/usb_msc_host/src/usb_bsp.c lib/usb_msc_host/src/usb_core.c lib/usb_msc_host/src/usb_hcd.c lib/usb_msc_host/src/usb_hcd_int.c lib/utility/utility.c lib/xpt2046-touch/xpt2046.c Src/Audio.c Src/background.c Src/cwMemory.c Src/cwMP3.c Src/cwSoundFile.c Src/cwWave.c Src/main.c Src/stm32f4xx_it.c Src/syscalls.c Src/system_stm32f4xx.c
+SOURCEFILES := lib/apps/calc.c lib/apps/phone.c lib/apps/player.c lib/Display/display.c lib/driver/src/misc.c lib/driver/src/stm32f4xx_adc.c lib/driver/src/stm32f4xx_dma.c lib/driver/src/stm32f4xx_exti.c lib/driver/src/stm32f4xx_gpio.c lib/driver/src/stm32f4xx_rcc.c lib/driver/src/stm32f4xx_sdio.c lib/driver/src/stm32f4xx_spi.c lib/driver/src/stm32f4xx_syscfg.c lib/driver/src/stm32f4xx_tim.c lib/driver/src/stm32f4xx_usart.c lib/fatfs/diskio.c lib/fatfs/drivers/fatfs_sd.c lib/fatfs/drivers/fatfs_sd_sdio.c lib/fatfs/drivers/fatfs_usb.c lib/fatfs/ff.c lib/helix/mp3dec.c lib/helix/mp3tabs.c lib/helix/real/bitstream.c lib/helix/real/buffers.c lib/helix/real/dct32.c lib/helix/real/dequant.c lib/helix/real/dqchan.c lib/helix/real/huffman.c lib/helix/real/hufftabs.c lib/helix/real/imdct.c lib/helix/real/polyphase.c lib/helix/real/scalfact.c lib/helix/real/stproc.c lib/helix/real/subband.c lib/helix/real/trigtabs_fixpt.c lib/Icons/battery/battery-1-16.c lib/Icons/battery/battery-2-16.c lib/Icons/battery/battery-3-16.c lib/Icons/battery/battery-charge16.c lib/Icons/battery/battery-charged16.c lib/Icons/battery/battery-empty16.c lib/Icons/battery/battery-full16.c lib/Icons/battery/battery-half16.c lib/Icons/battery_icons.c lib/Icons/icon.c lib/Icons/signals/batt_1.c lib/Icons/signals/batt_2.c lib/Icons/signals/batt_3.c lib/Icons/signals/batt_4.c lib/Icons/signals/batt_charge.c lib/Icons/signals/rssi_1.c lib/Icons/signals/rssi_2.c lib/Icons/signals/rssi_3.c lib/Icons/signals/rssi_4.c lib/Icons/signals/rssi_5.c lib/ILI9341/dev_spi.c lib/ILI9341/fonts/FreeMono12pt7b.c lib/ILI9341/fonts/FreeMono24pt7b.c lib/ILI9341/fonts/FreeMono9pt7b.c lib/ILI9341/fonts/FreeMonoBold12pt7b.c lib/ILI9341/fonts/FreeMonoBold18pt7b.c lib/ILI9341/ili9341_core.c lib/ILI9341/ili9341_graph.c lib/ILI9341/ili9341_spi.c lib/ILI9341/ili9341_text.c lib/JPEGDecoder/src/JPEGDecoder.cpp lib/JPEGDecoder/src/jpg_interface.cpp lib/JPEGDecoder/src/picojpeg.c lib/lcdButton/lcdButton.c lib/Sim800l/Sim800l.cpp lib/Sim800l/SIM800L_interface.cpp lib/stm32f4-tm/src/tm_stm32f4_adc.c lib/stm32f4-tm/src/tm_stm32f4_delay.c lib/stm32f4-tm/src/tm_stm32f4_disco.c lib/stm32f4-tm/src/tm_stm32f4_fatfs.c lib/stm32f4-tm/src/tm_stm32f4_gpio.c lib/stm32f4-tm/src/tm_stm32f4_lis302dl_lis3dsh.c lib/stm32f4-tm/src/tm_stm32f4_spi.c lib/stm32f4-tm/src/tm_stm32f4_timer_properties.c lib/stm32f4-tm/src/tm_stm32f4_usart.c lib/stm32f4-tm/src/tm_stm32f4_usb_msc_host.c lib/usb_msc_host/src/usbh_core.c lib/usb_msc_host/src/usbh_hcs.c lib/usb_msc_host/src/usbh_ioreq.c lib/usb_msc_host/src/usbh_msc_bot.c lib/usb_msc_host/src/usbh_msc_core.c lib/usb_msc_host/src/usbh_msc_scsi.c lib/usb_msc_host/src/usbh_stdreq.c lib/usb_msc_host/src/usbh_usr.c lib/usb_msc_host/src/usb_bsp.c lib/usb_msc_host/src/usb_core.c lib/usb_msc_host/src/usb_hcd.c lib/usb_msc_host/src/usb_hcd_int.c lib/utility/utility.c lib/xpt2046-touch/xpt2046.c Src/Audio.c Src/background.c Src/cwMemory.c Src/cwMP3.c Src/cwSoundFile.c Src/cwWave.c Src/main.c Src/stm32f4xx_it.c Src/syscalls.c Src/system_stm32f4xx.c
 EXTERNAL_LIBS := 
 EXTERNAL_LIBS_COPIED := $(foreach lib, $(EXTERNAL_LIBS),$(BINARYDIR)/$(notdir $(lib)))
 
@@ -363,11 +363,83 @@ $(BINARYDIR)/trigtabs_fixpt.o : lib/helix/real/trigtabs_fixpt.c $(all_make_files
 	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
 
 
+$(BINARYDIR)/battery-1-16.o : lib/Icons/battery/battery-1-16.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
+$(BINARYDIR)/battery-2-16.o : lib/Icons/battery/battery-2-16.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
+$(BINARYDIR)/battery-3-16.o : lib/Icons/battery/battery-3-16.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
+$(BINARYDIR)/battery-charge16.o : lib/Icons/battery/battery-charge16.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
+$(BINARYDIR)/battery-charged16.o : lib/Icons/battery/battery-charged16.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
+$(BINARYDIR)/battery-empty16.o : lib/Icons/battery/battery-empty16.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
+$(BINARYDIR)/battery-full16.o : lib/Icons/battery/battery-full16.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
+$(BINARYDIR)/battery-half16.o : lib/Icons/battery/battery-half16.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
 $(BINARYDIR)/battery_icons.o : lib/Icons/battery_icons.c $(all_make_files) |$(BINARYDIR)
 	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
 
 
 $(BINARYDIR)/icon.o : lib/Icons/icon.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
+$(BINARYDIR)/batt_1.o : lib/Icons/signals/batt_1.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
+$(BINARYDIR)/batt_2.o : lib/Icons/signals/batt_2.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
+$(BINARYDIR)/batt_3.o : lib/Icons/signals/batt_3.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
+$(BINARYDIR)/batt_4.o : lib/Icons/signals/batt_4.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
+$(BINARYDIR)/batt_charge.o : lib/Icons/signals/batt_charge.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
+$(BINARYDIR)/rssi_1.o : lib/Icons/signals/rssi_1.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
+$(BINARYDIR)/rssi_2.o : lib/Icons/signals/rssi_2.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
+$(BINARYDIR)/rssi_3.o : lib/Icons/signals/rssi_3.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
+$(BINARYDIR)/rssi_4.o : lib/Icons/signals/rssi_4.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
+$(BINARYDIR)/rssi_5.o : lib/Icons/signals/rssi_5.c $(all_make_files) |$(BINARYDIR)
 	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
 
 
@@ -384,6 +456,10 @@ $(BINARYDIR)/FreeMono24pt7b.o : lib/ILI9341/fonts/FreeMono24pt7b.c $(all_make_fi
 
 
 $(BINARYDIR)/FreeMono9pt7b.o : lib/ILI9341/fonts/FreeMono9pt7b.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
+
+
+$(BINARYDIR)/FreeMonoBold12pt7b.o : lib/ILI9341/fonts/FreeMonoBold12pt7b.c $(all_make_files) |$(BINARYDIR)
 	$(CC) $(CFLAGS) -c $< -o $@ $(CC_DEPENDENCY_FILE_SPECIFIER) $(@:.o=.dep)
 
 

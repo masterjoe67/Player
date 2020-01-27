@@ -422,6 +422,6 @@ const GFXglyph FreeMonoBold18pt7bGlyphs[] = {
 const GFXfont FreeMonoBold18pt7b = {
   (uint8_t  *)FreeMonoBold18pt7bBitmaps,
   (GFXglyph *)FreeMonoBold18pt7bGlyphs,
-  0x20, 0x7E, 35 };
+  0x20, 0x7E, 35, 9 };
 
 // Approx. 4485 bytes

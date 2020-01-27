@@ -58,8 +58,19 @@
         <IsCollapsed>false</IsCollapsed>
       </LiveVariable>
       <LiveVariable>
-        <Expression>VBAT</Expression>
-        <Type>UInt16</Type>
+        <Expression>LONG_CYCLE_Flag</Expression>
+        <Type>HexInt8</Type>
+        <Enabled>false</Enabled>
+        <Breakpoint>
+          <ComparisonMode>Equals</ComparisonMode>
+          <Enabled>false</Enabled>
+        </Breakpoint>
+        <Plot>false</Plot>
+        <IsCollapsed>false</IsCollapsed>
+      </LiveVariable>
+      <LiveVariable>
+        <Expression>callStatus</Expression>
+        <Type>UInt8</Type>
         <Enabled>true</Enabled>
         <Breakpoint>
           <ComparisonMode>Equals</ComparisonMode>

@@ -46,7 +46,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <NMakeIncludeSearchPath>.;$(TOOLCHAIN_ROOT)\arm-eabi\include\c++\7.2.0;$(TOOLCHAIN_ROOT)\arm-eabi\include\c++\7.2.0\arm-eabi\thumb\cortex_m4;$(TOOLCHAIN_ROOT)\arm-eabi\include\c++\7.2.0\backward;$(TOOLCHAIN_ROOT)\lib\gcc\arm-eabi\7.2.0\include;$(TOOLCHAIN_ROOT)\lib\gcc\arm-eabi\7.2.0\include-fixed;$(TOOLCHAIN_ROOT)\arm-eabi\sys-include;$(TOOLCHAIN_ROOT)\arm-eabi\include;Inc;lib\cmsis\device\inc;lib\cmsis\inc;lib\driver\inc;lib\stm32f4-tm\inc;lib\fatfs;lib\usb_msc_host\inc;lib\helix\pub;lib\helix\real;lib\fatfs\drivers;lib\ILI9341;lib\Display;lib\Icons;lib\Images;lib\lcdButton;lib\xpt2046-touch;lib\JPEGDecoder\src;lib\Icons\cell;lib\apps;lib\ILI9341\fonts;lib\utility;lib\Sim800l;lib\Icons\battery;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeIncludeSearchPath>.;$(TOOLCHAIN_ROOT)\arm-eabi\include\c++\7.2.0;$(TOOLCHAIN_ROOT)\arm-eabi\include\c++\7.2.0\arm-eabi\thumb\cortex_m4;$(TOOLCHAIN_ROOT)\arm-eabi\include\c++\7.2.0\backward;$(TOOLCHAIN_ROOT)\lib\gcc\arm-eabi\7.2.0\include;$(TOOLCHAIN_ROOT)\lib\gcc\arm-eabi\7.2.0\include-fixed;$(TOOLCHAIN_ROOT)\arm-eabi\sys-include;$(TOOLCHAIN_ROOT)\arm-eabi\include;Inc;lib\cmsis\device\inc;lib\cmsis\inc;lib\driver\inc;lib\stm32f4-tm\inc;lib\fatfs;lib\usb_msc_host\inc;lib\helix\pub;lib\helix\real;lib\fatfs\drivers;lib\ILI9341;lib\Display;lib\Icons;lib\Images;lib\lcdButton;lib\xpt2046-touch;lib\JPEGDecoder\src;lib\Icons\cell;lib\apps;lib\ILI9341\fonts;lib\utility;lib\Sim800l;lib\Icons\battery;lib\Icons\signals;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
     <NMakeForcedIncludes>$(ProjectDir)\gcc_Debug.h;$(VISUALGDB_DIR)\gcc_compat.h;$(BSP_ROOT)\stm32_compat.h;$(NMakeForcedIncludes)</NMakeForcedIncludes>
     <NMakeBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /build "$(ProjectPath)" "/solution:$(SolutionPath)"  "/config:$(Configuration)" "/platform:$(Platform)"</NMakeBuildCommandLine>
     <NMakeCleanCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /clean "$(ProjectPath)" "/solution:$(SolutionPath)"  "/config:$(Configuration)" "/platform:$(Platform)"</NMakeCleanCommandLine>
@@ -123,10 +123,22 @@
     <ClCompile Include="lib\Icons\battery\battery-half16.c" />
     <ClCompile Include="lib\Icons\battery_icons.c" />
     <ClCompile Include="lib\Icons\icon.c" />
+    <ClCompile Include="lib\Icons\signals\batt_0.c" />
+    <ClCompile Include="lib\Icons\signals\batt_1.c" />
+    <ClCompile Include="lib\Icons\signals\batt_2.c" />
+    <ClCompile Include="lib\Icons\signals\batt_3.c" />
+    <ClCompile Include="lib\Icons\signals\batt_4.c" />
+    <ClCompile Include="lib\Icons\signals\batt_charge.c" />
+    <ClCompile Include="lib\Icons\signals\rssi_1.c" />
+    <ClCompile Include="lib\Icons\signals\rssi_2.c" />
+    <ClCompile Include="lib\Icons\signals\rssi_3.c" />
+    <ClCompile Include="lib\Icons\signals\rssi_4.c" />
+    <ClCompile Include="lib\Icons\signals\rssi_5.c" />
     <ClCompile Include="lib\ILI9341\dev_spi.c" />
     <ClCompile Include="lib\ILI9341\fonts\FreeMono12pt7b.c" />
     <ClCompile Include="lib\ILI9341\fonts\FreeMono24pt7b.c" />
     <ClCompile Include="lib\ILI9341\fonts\FreeMono9pt7b.c" />
+    <ClCompile Include="lib\ILI9341\fonts\FreeMonoBold12pt7b.c" />
     <ClCompile Include="lib\ILI9341\fonts\FreeMonoBold18pt7b.c" />
     <ClCompile Include="lib\ILI9341\ili9341_core.c" />
     <ClCompile Include="lib\ILI9341\ili9341_graph.c" />
@@ -231,6 +243,17 @@
     <ClInclude Include="lib\Icons\icon.h" />
     <ClInclude Include="lib\Icons\icons_included.h" />
     <ClInclude Include="lib\Icons\retmenu.h" />
+    <ClInclude Include="lib\Icons\signals\batt_0.h" />
+    <ClInclude Include="lib\Icons\signals\batt_1.h" />
+    <ClInclude Include="lib\Icons\signals\batt_2.h" />
+    <ClInclude Include="lib\Icons\signals\batt_3.h" />
+    <ClInclude Include="lib\Icons\signals\batt_4.h" />
+    <ClInclude Include="lib\Icons\signals\batt_charge.h" />
+    <ClInclude Include="lib\Icons\signals\rssi_1.h" />
+    <ClInclude Include="lib\Icons\signals\rssi_2.h" />
+    <ClInclude Include="lib\Icons\signals\rssi_3.h" />
+    <ClInclude Include="lib\Icons\signals\rssi_4.h" />
+    <ClInclude Include="lib\Icons\signals\rssi_5.h" />
     <ClInclude Include="lib\ILI9341\characters.h" />
     <ClInclude Include="lib\ILI9341\dev_spi.h" />
     <ClInclude Include="lib\ILI9341\fonts\fonts.h" />

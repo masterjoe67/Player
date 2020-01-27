@@ -151,6 +151,12 @@
     <Filter Include="Header files\lib\icons\battery">
       <UniqueIdentifier>{8e389de9-6820-4eeb-98a5-6779f4423d2d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header files\lib\icons\signals">
+      <UniqueIdentifier>{4ea17fb5-27be-44a6-a073-fe999cf45d63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\lib\icons\signals">
+      <UniqueIdentifier>{802d39b8-ed8c-4404-a2fa-ac5986aa4f8e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />
@@ -461,6 +467,42 @@
     </ClCompile>
     <ClCompile Include="lib\Icons\battery\battery-half16.c">
       <Filter>Source files\lib\icons\battery</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\ILI9341\fonts\FreeMonoBold12pt7b.c">
+      <Filter>Source files\lib\ILI9341\fonts</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Icons\signals\batt_1.c">
+      <Filter>Source files\lib\icons\signals</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Icons\signals\batt_2.c">
+      <Filter>Source files\lib\icons\signals</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Icons\signals\batt_3.c">
+      <Filter>Source files\lib\icons\signals</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Icons\signals\batt_4.c">
+      <Filter>Source files\lib\icons\signals</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Icons\signals\batt_charge.c">
+      <Filter>Source files\lib\icons\signals</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Icons\signals\rssi_1.c">
+      <Filter>Source files\lib\icons\signals</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Icons\signals\rssi_2.c">
+      <Filter>Source files\lib\icons\signals</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Icons\signals\rssi_3.c">
+      <Filter>Source files\lib\icons\signals</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Icons\signals\rssi_4.c">
+      <Filter>Source files\lib\icons\signals</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Icons\signals\rssi_5.c">
+      <Filter>Source files\lib\icons\signals</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Icons\signals\batt_0.c">
+      <Filter>Source files\lib\icons\signals</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -895,6 +937,39 @@
     </ClInclude>
     <ClInclude Include="lib\driver\inc\stm32f4xx_exti.h">
       <Filter>Header files\lib\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\signals\batt_1.h">
+      <Filter>Header files\lib\icons\signals</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\signals\batt_2.h">
+      <Filter>Header files\lib\icons\signals</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\signals\batt_3.h">
+      <Filter>Header files\lib\icons\signals</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\signals\batt_4.h">
+      <Filter>Header files\lib\icons\signals</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\signals\batt_charge.h">
+      <Filter>Header files\lib\icons\signals</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\signals\rssi_1.h">
+      <Filter>Header files\lib\icons\signals</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\signals\rssi_2.h">
+      <Filter>Header files\lib\icons\signals</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\signals\rssi_3.h">
+      <Filter>Header files\lib\icons\signals</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\signals\rssi_4.h">
+      <Filter>Header files\lib\icons\signals</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\signals\rssi_5.h">
+      <Filter>Header files\lib\icons\signals</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Icons\signals\batt_0.h">
+      <Filter>Header files\lib\icons\signals</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

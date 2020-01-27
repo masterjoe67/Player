@@ -74,11 +74,11 @@ int Sim800l::getc() {
 /********* HELPERS *********************************************/
 
 bool Sim800l::expectReply(const char* reply, uint16_t timeout) {
-	RecvResponse2();
-#ifdef ADAFRUIT_FONA_DEBUG
-	printf("\t<--- %s\r\n", replybuffer);
-#endif
-	return (strcmp(replybuffer, reply) == 0);
+	readline(timeout);
+
+	//DEBUG_PRINT(F("\t<--- ")); DEBUG_PRINTLN(replybuffer);
+
+	return (prog_char_strcmp(replybuffer, (char*)reply) == 0);
 }
 
 int Sim800l::RecvResponse2()
@@ -102,9 +102,9 @@ int Sim800l::RecvResponse2()
 	return recv;
 }
 
-void Sim800l::setEventListener(EventListener *eventListener) {
+/*void Sim800l::setEventListener(EventListener *eventListener) {
 	this->eventListener = eventListener;
-}
+}*/
 
 void Sim800l::onSerialDataReceived(uint8_t c) {
 	while (USART_GetITStatus(USART2, USART_IT_RXNE) && !isRxBufferFull()) {
@@ -125,14 +125,14 @@ void Sim800l::onSerialDataReceived(uint8_t c) {
 		if(data == '\n') {
 			currentReceivedLine[currentReceivedLineSize] = 0;
             
-			if (eventListener != NULL) {
 				// Check if we have a special event
 				if(strcmp(currentReceivedLine, "RING") == 0) {
-					eventListener->onRing();
+					_incomingCall = true;
+					
 				} else if(strcmp(currentReceivedLine, "NO CARRIER") == 0) {
-					eventListener->onNoCarrier();
+					_noCarrier = true;
 				}
-			}
+			
             
 			currentReceivedLineSize = 0;
 		}
@@ -256,102 +256,21 @@ bool Sim800l::begin(){
 	Delayms(100);
 	sendCheckReply("AT", "OK");
 	Delayms(100);
-    
+	
+    _noCarrier = false;
+	_incomingCall = false;
+	
 	// turn off Echo!
 	sendCheckReply("ATE0", "OK");
 	Delayms(100);
+	
     
 	if (!sendCheckReply("ATE0", "OK")) {
 		return false;
 	}
-    
-	return true;
 	
-	/*_buffer.reserve(255); //reserve memory to prevent intern fragmention
-	_timeout = 0;
-	while(_timeout < 3000) {
-		//LCD_writeString((unsigned char*)"Try initilize communication between STM32 & SIMCOM module\n\r");
-		if (SendCmd_Check("AT", "OK")) {
-			//LCD_writeString((unsigned char*)"Initilization successful!\n\r");
-			break;
-		}
-		_timeout += 1000;
-		Delayms(1000);
-		if (_timeout > 3000) return 0;
-	}
-	_timeout = 0;
-	while (_timeout < 3000) {
-		//LCD_writeString((unsigned char*)"Try close ATE function\n\r");
-		if (SendCmd_Check("ATE1", "OK")) {
-			//LCD_writeString((unsigned char*)"Close successful!\n\r");
-			break;
-		}
-		_timeout += 1000;
-		Delayms(1000);
-		if (_timeout > 3000) return 0;
-	}
-	_timeout = 0;
-	while (_timeout < 3000) {
-		//LCD_writeString((unsigned char*)"Try disable calling number\n\r");
-		if (SendCmd_Check("AT+COLP=1", "OK")) {
-			//LCD_writeString((unsigned char*)"Disable successful!\n\r");
-			break;
-		}
-		_timeout += 1000;
-		Delayms(1000);
-		if (_timeout > 3000) return 0;
-	}
-	_timeout = 0;
-	while (_timeout < 3000) {
-		//LCD_writeString((unsigned char*)"Try enable ATH\n\r");
-		if (SendCmd_Check("AT+CLIP=1", "OK")) {
-			//LCD_writeString((unsigned char*)"Enable successful!\n\r");
-			break;
-		}
-		_timeout += 1000;
-		Delayms(1000);
-		if (_timeout > 3000) return 0;
-	}
-	_timeout = 0;
-	while (_timeout < 3000) {
-		//LCD_writeString((unsigned char*)"Set SMS text mode\n\r");
-		if (SendCmd_Check("AT+FSHEX=0", "OK")) {
-			//LCD_writeString((unsigned char*)"Set successful!\n\r");
-			break;
-		}
-		_timeout += 1000;
-		Delayms(1000);
-		if (_timeout > 3000) return 0;
-	}
-	_timeout = 0;
-	while (_timeout < 3000) {
-		//LCD_writeString((unsigned char*)"Set SMS text mode\n\r");
-		if (SendCmd_Check("AT+CREG=1", "OK")) {
-			//LCD_writeString((unsigned char*)"Set successful!\n\r");
-			break;
-		}
-		_timeout += 1000;
-		Delayms(1000);
-		if (_timeout > 3000) return 0;
-	}
-	_timeout = 0;
-	while (_timeout < 3000) {
-		//LCD_writeString((unsigned char*)"Set SMS text mode\n\r");
-		if(SendCmd_Check("ATE0", "OK")) {
-			//LCD_writeString((unsigned char*)"Set successful!\n\r");
-			break;
-		}
-		_timeout += 1000;
-		Delayms(1000);
-		if (_timeout > 3000) return 0;
-	}
-	Delayms(100);
-    
-	if (!SendCmd_Check("ATE0", "OK")) {
-		return 0;
-	}*/
-	//LCD_writeString((unsigned char*)"Initilization successful!\n\r");
-	return 1;
+	
+	return true;
 }
 
 bool Sim800l::sendParseReply(const char* tosend, const char* toreply, uint16_t *v, char divider, uint8_t index) {
@@ -401,6 +320,43 @@ bool Sim800l::parseReply(const char* toreply, char *v, char divider, uint8_t ind
 	}
     
 	v[i] = '\0';
+    
+	return true;
+}
+
+// Parse a quoted string in the response fields and copy its value (without quotes)
+// to the specified character array (v).  Only up to maxlen characters are copied
+// into the result buffer, so make sure to pass a large enough buffer to handle the
+// response.
+bool Sim800l::parseReplyQuoted(const char* toreply, char* v, int maxlen, char divider, uint8_t index) {
+	uint8_t i = 0, j;
+	// Verify response starts with toreply.
+	char *p = strstr(replybuffer, toreply);
+	if (p == 0) return false;
+	p += strlen(toreply);
+    
+	// Find location of desired response field.
+	for(i = 0 ; i < index ; i++) {
+		// increment dividers
+		p = strchr(p, divider);
+		if (!p) return false;
+		p++;
+	}
+    
+	// Copy characters from response field into result string.
+	for(i = 0, j = 0 ; j < maxlen && i < strlen(p) ; ++i) {
+		// Stop if a divier is found.
+		if(p[i] == divider)
+		    break;
+		// Skip any quotation marks.
+		else if(p[i] == '"')
+		    continue;
+		v[j++] = p[i];
+	}
+    
+	// Add a null terminator if result string buffer was not filled.
+	if(j < maxlen)
+	    v[j] = '\0';
     
 	return true;
 }
@@ -575,16 +531,29 @@ bool Sim800l::unlockSIM(char *pin)
 	return sendCheckReply(sendbuff, "OK");
 }
 
+uint8_t Sim800l::getSIMProvider(char *provider) {
+	getReply("AT+CSPN?"); //CSPN?
+	// up to 20 chars
+	strncpy(provider, replybuffer, 20);
+	provider[20] = 0;
+    
+	readline();  // eat 'OK'
+    
+	return strlen(provider);
+}
+
 uint8_t Sim800l::getSIMCCID(char *ccid) {
 	getReply("AT+CCID");
 	// up to 20 chars
 	strncpy(ccid, replybuffer, 20);
 	ccid[20] = 0;
     
-	readline();  // eat 'OK'
+	readline();   // eat 'OK'
     
 	return strlen(ccid);
 }
+
+
 
 /********* IMEI **********************************************************/
 
@@ -743,11 +712,30 @@ bool Sim800l::callPhone(char *number) {
 }
 
 bool Sim800l::hangUp(void) {
-	return sendCheckReply("ATH0", "OK");
+	return sendCheckReply("ATH", "OK");
 }
 
 bool Sim800l::pickUp(void) {
 	return sendCheckReply("ATA", "OK");
+}
+
+uint8_t Sim800l::isCallActive()
+{
+	uint16_t reply;
+    
+	if (!sendParseReply("AT+CPAS", "+CPAS: ", &reply)) return 2;
+    
+	/*Result code:
+	    0: ready
+	    2: unknown
+	    3: ringing
+	    4: call in progress*/
+    
+
+    
+	return reply;
+
+
 }
 
 void Sim800l::onIncomingCall() {
@@ -767,8 +755,8 @@ bool Sim800l::callerIdNotification(bool enable) {
 
 bool Sim800l::incomingCallNumber(char* phonenum) {
 	//+CLIP: "<incoming phone number>",145,"",0,"",0
-	if(!_incomingCall)
-	    return false;
+	//if(!_incomingCall)
+	//    return false;
     
 	readline();
 	while (!strcmp(replybuffer, "RING") == 0) {
@@ -865,11 +853,11 @@ bool Sim800l::getSMSSender(uint8_t i, char *sender, int senderlen) {
 
 	TM_USART_Puts(USART2, str);
 
+	readline(1000);
+	//return RecvResponse2(); //return l;
 
-	return RecvResponse2(); //return l;
-	//mySerial.printf("AT+CMGR=%d\r\n", i);
-	//readline(1000);
 	// Parse the second field in the response.
+	//bool result = parseReplyQuoted("+CMGR:", sender, senderlen, ',', (uint8_t)0x01);
 	bool result = parseReplyQuoted("+CMGR:", sender, senderlen, ',', 1);
 	// Drop any remaining data from the response.
 	flushInput();
@@ -891,18 +879,12 @@ bool Sim800l::sendSMS(char *smsaddr, char *smsmsg) {
 	TM_USART_Puts(USART2, str);
 	TM_USART_Putc(USART2, 0x1A);
 
-	return RecvResponse2(); //return l;
-
-	//mySerial.printf("%s\r\n\r\n", smsmsg);
-	//mySerial.putc(0x1A);
-
-	//readline(10000);  // read the +CMGS reply, wait up to 10 seconds!!!
-	//Serial.print("* "); Serial.println(replybuffer);
-	if(strstr(replybuffer, "+CMGS") == 0) {
+	readline(10000);  // read the +CMGS reply, wait up to 10 seconds!!!
+    //Serial.print("* "); Serial.println(replybuffer);
+    if(strstr(replybuffer, "+CMGS") == 0) {
 		return false;
 	}
-	//readline(1000);  // read OK
-	RecvResponse2();
+	readline(1000);  // read OK
 	//Serial.print("* "); Serial.println(replybuffer);
     
 	if(strcmp(replybuffer, "OK") != 0) {

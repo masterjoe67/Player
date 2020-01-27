@@ -43,6 +43,7 @@ extern "C" {
 	uint8_t Sim800l_getSIMCCID(char *ccid);
 	uint8_t Sim800l_getNetworkStatus(void);
 	uint8_t Sim800l_getRSSI(void);
+	uint8_t Sim800l_getSIMProvider(char *provider);
 	
 	// set Audio output
     bool Sim800l_setAudio(uint8_t a);
@@ -71,6 +72,9 @@ extern "C" {
 	bool Sim800l_callerIdNotification(bool enable);
 	bool Sim800l_incomingCallNumber(char* phonenum);
 	void Sim800l_onIncomingCall();
+	uint8_t Sim800l_isCallActive();
+	uint8_t Sim800l_IsEvent();
+	void Sim800l_clearEvent();
 	
 	// SMS handling
     bool Sim800l_setSMSInterrupt(uint8_t i);

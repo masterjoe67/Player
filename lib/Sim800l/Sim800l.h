@@ -45,6 +45,10 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif*/
+
+#ifndef prog_char_strcmp
+#define prog_char_strcmp(a, b)					strcmp((a), (b))
+#endif
 	
 
 #define RX_PIN PA3
@@ -82,35 +86,24 @@ typedef  std::string String;
 class Sim800l		
 {				
 public:
-	/**
-	 * Listener for FONA events.
-	 */
-	class EventListener {
-	public:
-		/**
-		 * Method called when somebody call the FONA.
-		 */
-		virtual void onRing() = 0;
-                
-		/**
-		 * Method called when the calling person stop his call.
-		 */
-		virtual void onNoCarrier() = 0;
-	};
+
+	
+	volatile bool _incomingCall;
+	volatile bool _noCarrier;
   private:
 	int _timeout;
 	String _buffer;
 	String _readSerial();
 	char replybuffer[255];
 
-	EventListener *eventListener;
+	
 	
 	char* apn;
 	char* apnusername;
 	char* apnpassword;
 	bool httpsredirect;
 	char* useragent;
-	volatile bool _incomingCall;
+	
 	
 	
  	void reset(); 
@@ -174,7 +167,7 @@ public:
 	void onSerialDataReceived(uint8_t c);
 
 	bool begin();
-	void setEventListener(EventListener *eventListener);
+	//void setEventListener(EventListener *eventListener);
 	
 	void Product_Identification_Information(char* ret);
 	void setPhoneFunctionality();
@@ -201,6 +194,7 @@ public:
 	uint8_t getSIMCCID(char *ccid);
 	uint8_t getNetworkStatus(void);
 	uint8_t getRSSI(void);
+	uint8_t getSIMProvider(char *provider);
 	
 	// set Audio output
     bool setAudio(uint8_t a);
@@ -227,6 +221,7 @@ public:
 	bool callerIdNotification(bool enable);
 	bool incomingCallNumber(char* phonenum);
 	void onIncomingCall();
+	uint8_t isCallActive();
 	
 	// SMS handling
     bool setSMSInterrupt(uint8_t i);

@@ -49,7 +49,9 @@ Debug/phone.o: lib/apps/phone.c lib/apps/phone.h \
  lib/xpt2046-touch/xpt2046.h lib/ILI9341/fonts/fonts.h \
  lib/ILI9341/fonts/FreeMono9pt7b.h lib/ILI9341/fonts/FreeMono12pt7b.h \
  lib/ILI9341/fonts/FreeMono24pt7b.h \
- lib/ILI9341/fonts/FreeMonoBold18pt7b.h Inc/cwMemory.h \
+ lib/ILI9341/fonts/FreeMonoBold12pt7b.h \
+ lib/ILI9341/fonts/FreeMonoBold18pt7b.h lib/lcdButton/lcdButton.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\math.h Inc/cwMemory.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\stdio.h \
  c:\sysgcc\arm-eabi\lib\gcc\arm-eabi\7.2.0\include\stdarg.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\types.h \
@@ -63,4 +65,25 @@ Debug/phone.o: lib/apps/phone.c lib/apps/phone.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\_pthreadtypes.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\types.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\stdio.h Inc/Audio.h \
- lib/fatfs/ff.h lib/fatfs/integer.h lib/fatfs/ffconf.h
+ lib/fatfs/ff.h lib/fatfs/integer.h lib/fatfs/ffconf.h \
+ lib/stm32f4-tm/inc/tm_stm32f4_delay.h \
+ lib/stm32f4-tm/inc/tm_stm32f4_timer_properties.h lib/Display/display.h \
+ Inc/main.h Inc/defines.h Inc/background.h \
+ lib/stm32f4-tm/inc/tm_stm32f4_timer_properties.h \
+ lib/stm32f4-tm/inc/tm_stm32f4_disco.h \
+ lib/stm32f4-tm/inc/tm_stm32f4_adc.h lib/stm32f4-tm/inc/tm_stm32f4_gpio.h \
+ lib/Icons/icons_included.h lib/Icons/circ_menu.h lib/Icons/circ_pause.h \
+ lib/Icons/circ_mute.h lib/Icons/circ_next.h lib/Icons/circ_play.h \
+ lib/Icons/circ_prev.h lib/Icons/circ_audio0.h lib/Icons/circ_audio100.h \
+ lib/Icons/circ_music.h lib/Icons/cell/Apps-Calc-icon.h \
+ lib/Icons/cell/Apps-Clock-icon.h lib/Icons/cell/Apps-Gallery-icon.h \
+ lib/Icons/cell/Apps-Preferences-Desktop-C-icon.h \
+ lib/Icons/cell/Apps-Phone-icon.h \
+ lib/Icons/cell/Apps-Subtitleeditor-icon.h \
+ lib/Icons/cell/Apps-Rubrica-icon.h \
+ lib/Icons/cell/Apps-Player-Audio-C-icon.h lib/Icons/signals/batt_0.h \
+ lib/Icons/signals/batt_1.h lib/Icons/signals/batt_2.h \
+ lib/Icons/signals/batt_3.h lib/Icons/signals/batt_4.h \
+ lib/Icons/signals/rssi_1.h lib/Icons/signals/rssi_2.h \
+ lib/Icons/signals/rssi_3.h lib/Icons/signals/rssi_4.h \
+ lib/Icons/signals/rssi_5.h lib/Icons/icon.h

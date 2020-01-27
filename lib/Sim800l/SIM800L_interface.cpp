@@ -33,6 +33,7 @@ extern "C" {
 	uint8_t Sim800l_getSIMCCID(char *ccid) {return _Sim800l.getSIMCCID(ccid);}
 	uint8_t Sim800l_getNetworkStatus(void) {return _Sim800l.getNetworkStatus();}
 	uint8_t Sim800l_getRSSI(void) {return _Sim800l.getRSSI();}
+	uint8_t Sim800l_getSIMProvider(char *provider) {return _Sim800l.getSIMProvider(provider);}
 	
 	// set Audio output
     bool Sim800l_setAudio(uint8_t a) {return _Sim800l.setAudio(a);}
@@ -61,6 +62,19 @@ extern "C" {
 	bool Sim800l_callerIdNotification(bool enable) {return _Sim800l.callerIdNotification(enable);}
 	bool Sim800l_incomingCallNumber(char* phonenum) {return _Sim800l.incomingCallNumber(phonenum);}
 	void Sim800l_onIncomingCall() {_Sim800l.onIncomingCall(); }
+	uint8_t Sim800l_isCallActive() {return _Sim800l.isCallActive(); }
+	uint8_t Sim800l_IsEvent() 
+	{
+		uint8_t ret = 0;
+		if (_Sim800l._incomingCall) ret += 1; 
+		if (_Sim800l._noCarrier) ret += 2;
+		return ret;
+	}
+	void Sim800l_clearEvent() 
+	{
+		_Sim800l._incomingCall = false; 
+		_Sim800l._noCarrier = false;
+	}
 	
 	// SMS handling
     bool Sim800l_setSMSInterrupt(uint8_t i) {return _Sim800l.setSMSInterrupt(i); }

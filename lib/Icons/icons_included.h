@@ -18,9 +18,21 @@
 #include "Apps-Rubrica-icon.h"
 #include "Apps-Player-Audio-C-icon.h"
 
-#include "battery-1-16.h"
+/*#include "battery-1-16.h"
 #include "battery-2-16.h"
 #include "battery-3-16.h"
 #include "battery-empty16.h"
 #include "battery-full16.h"
-#include "battery-half16.h"
+#include "battery-half16.h"*/
+
+#include "batt_0.h"
+#include "batt_1.h"
+#include "batt_2.h"
+#include "batt_3.h"
+#include "batt_4.h"
+
+#include "rssi_1.h"
+#include "rssi_2.h"
+#include "rssi_3.h"
+#include "rssi_4.h"
+#include "rssi_5.h"

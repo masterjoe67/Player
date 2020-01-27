@@ -45,6 +45,8 @@ void LCD_setTextBgColor(u16 color);
 
 u16 LCD_getCursorX();
 u16 LCD_getCursorY();
+void LCD_setCursorX(u16 x);
+void LCD_setCursorY(u16 y);
 
 void LCD_setFont(const GFXfont *f);
 

@@ -55,11 +55,12 @@ Debug/player.o: lib/apps/player.c lib/ILI9341/ili9341_text.h \
  lib/Icons/cell/Apps-Phone-icon.h \
  lib/Icons/cell/Apps-Subtitleeditor-icon.h \
  lib/Icons/cell/Apps-Rubrica-icon.h \
- lib/Icons/cell/Apps-Player-Audio-C-icon.h \
- lib/Icons/battery/battery-1-16.h lib/Icons/battery/battery-2-16.h \
- lib/Icons/battery/battery-3-16.h lib/Icons/battery/battery-empty16.h \
- lib/Icons/battery/battery-full16.h lib/Icons/battery/battery-half16.h \
- lib/Icons/icon.h lib/lcdButton/lcdButton.h \
+ lib/Icons/cell/Apps-Player-Audio-C-icon.h lib/Icons/signals/batt_0.h \
+ lib/Icons/signals/batt_1.h lib/Icons/signals/batt_2.h \
+ lib/Icons/signals/batt_3.h lib/Icons/signals/batt_4.h \
+ lib/Icons/signals/rssi_1.h lib/Icons/signals/rssi_2.h \
+ lib/Icons/signals/rssi_3.h lib/Icons/signals/rssi_4.h \
+ lib/Icons/signals/rssi_5.h lib/Icons/icon.h lib/lcdButton/lcdButton.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\math.h Inc/cwMP3.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\stdio.h \
  c:\sysgcc\arm-eabi\lib\gcc\arm-eabi\7.2.0\include\stdarg.h \

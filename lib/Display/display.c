@@ -17,6 +17,7 @@
 #include "Audio.h"
 #include "utility.h"
 #include "background.h"
+#include "phone.h"
 
 #pragma GCC push_options
 #pragma GCC optimize ("O0")
@@ -35,11 +36,12 @@ char name[20];
 const int xstartButton[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };                    // x-min for keypads
 const int ystartButton[] = { 0, 24, 48, 72, 96, 120, 144, 168, 192, 216 };              // y-min for keypads
 
+
 // Button position in main menu
 const int widthButtonMain = 48;
 const int heightButtonMain = 48;
 const int xstartButtonMain[] = { 25, 99, 173, 247, 25, 99, 173, 247 };                      // x-min for keypads
-const int ystartButtonMain[] = { 30, 30, 30, 30, 162, 162, 162, 162 };                // y-min for keypads
+const int ystartButtonMain[] = { 50, 50, 50, 50, 162, 162, 162, 162 };                // y-min for keypads
 
 
 const int widthButton = 16;
@@ -144,24 +146,108 @@ void battery_helper()
 	switch (battery_level)
 	{
 	case 0: 
-		LCD_drawRGBBitmap(250, 2, (uint16_t *)image_data_batteryempty16, 16, 16);
+		LCD_drawRGBBitmap(250, 2, (uint16_t *)image_data_batt_0, 24, 24);
 		break;
 	case 1: 
-		LCD_drawRGBBitmap(250, 2, (uint16_t *)image_data_battery116, 16, 16);
+		LCD_drawRGBBitmap(250, 2, (uint16_t *)image_data_batt_1, 24, 24);
 		break;
 	case 2: 
-		LCD_drawRGBBitmap(250, 2, (uint16_t *)image_data_battery216, 16, 16);
+		LCD_drawRGBBitmap(250, 2, (uint16_t *)image_data_batt_2, 24, 24);
 		break;
 	case 3: 
-		LCD_drawRGBBitmap(250, 2, (uint16_t *)image_data_batteryhalf16, 16, 16);
+		LCD_drawRGBBitmap(250, 2, (uint16_t *)image_data_batt_3, 24, 24);
 		break;
 	case 4: 
-		LCD_drawRGBBitmap(250, 2, (uint16_t *)image_data_battery316, 16, 16);
-		break;
-	case 5: 
-		LCD_drawRGBBitmap(250, 2, (uint16_t *)image_data_batteryfull16, 16, 16);
+		LCD_drawRGBBitmap(250, 2, (uint16_t *)image_data_batt_4, 24, 24);
 		break;
 	}
+}
+
+void rssi_helper()
+{
+	RSSI = Sim800l_getRSSI();
+	if (RSSI > 30)
+		LCD_drawRGBBitmap(200, 0, (uint16_t *)image_data_rssi_5, 40, 32);
+	else if (RSSI > 30)
+		LCD_drawRGBBitmap(200, 0, (uint16_t *)image_data_rssi_4, 40, 32);
+	else if (RSSI > 15)
+		LCD_drawRGBBitmap(200, 0, (uint16_t *)image_data_rssi_3, 40, 32);
+	else if (RSSI > 5)
+		LCD_drawRGBBitmap(200, 0, (uint16_t *)image_data_rssi_2, 40, 32);
+	else if (RSSI == 0)
+		LCD_drawRGBBitmap(200, 0, (uint16_t *)image_data_rssi_1, 40, 32);
+	else if (RSSI == 99)
+		LCD_fillRect(200, 2, 40, 32, WHITE);
+	
+}
+
+void provider_helper(uint8_t status)
+{
+	char text[32];
+	LCD_setTextColor(BLACK);
+	
+	LCD_setFont(&FreeMono9pt7b);
+	LCD_setCursor(20, 16);
+	LCD_fillRect(20, 0, 140, 20, WHITE);
+	
+	if (status == 1)
+	{
+		if (Sim800l_getSIMProvider(text) > 0)
+		{
+			char *p, *p2;
+			p = strchr(text, 0x22) + 1;    // '"'
+			p2 = strrchr(text, 0x22); 
+			uint8_t n = p2 - p;
+		
+			char subbuff[n];
+			memcpy(subbuff, p, n);
+			subbuff[n] = '\0';
+			LCD_fillRect(20, 0, 140, 20, WHITE);
+			LCD_writeString((unsigned char*)subbuff);
+
+		}
+	}
+	else if (status == 2)
+	{
+		LCD_fillRect(20, 0, 140, 20, WHITE);
+		LCD_writeString((unsigned char*)"Ricerca rete");
+	}
+
+}
+
+void GSM_helper()
+{
+	NetworkStatus = Sim800l_getNetworkStatus();
+	battery_helper();
+
+		switch (NetworkStatus)
+		{
+		case 0:		//Not  registered,  MT  is  not  currently  searching  a  new 
+					
+			break;
+		case 1:		//1    Registered, home network 
+		case 5 : 		//5   Registered roaming	
+
+				rssi_helper();
+				provider_helper(1);	
+			
+			
+			break;
+		case 2:		//2    Not  registered,  but  MT  is  currently  searching  a  new
+			
+				provider_helper(2);	
+			
+			break;
+		case 3:		//3   Registration    denied             
+					
+			break;
+		case 4:		//4   Unknown
+					
+			break;
+
+		}
+		
+	
 }
 
 
@@ -171,10 +257,9 @@ void exit_btn_helper()
 	LCD_drawRGBBitmap(303, 2, (uint16_t *)image_data_Cancel, 16, 16);
 }
 
-uint8_t Display_mainMenu()
+void Display_mainMenu_draw()
 {
-	mode = 0;
-	vbat_refresh = false;
+	BG_DisableBGTimer();
 	LCD_fillScreen(WHITE);
 
 	int i = 0;
@@ -203,11 +288,28 @@ uint8_t Display_mainMenu()
 	BTN_icon_draw(&but_icon[i]); 
 
 	battery_helper();
+	
+	vbat_refresh = true;
+	BG_EnableBGTimer();
+}
+
+uint8_t Display_mainMenu()
+{
 	uint8_t oldlevel = battery_level;
+	mode = modeMain;
+	vbat_refresh = false;
+	Display_mainMenu_draw();
+	
 	/* Infinite loop */
 	for (;;)
 	{
-
+		if (isRinging()) Display_mainMenu_draw();
+		if (LONG_CYCLE_Flag)
+		{
+			GSM_helper();
+			LONG_CYCLE_Flag = false;
+		}
+		
 		if (TouchPressed())
 		{
 			getDisplayPoint(&display, Read_Value(), &matrix);
@@ -232,13 +334,13 @@ uint8_t Display_mainMenu()
 					//return modeMP3;
 					break;
 				case 5:
-					//return modeMP3;
+					return modeCall;
 					break;
 				case 6:
 					//return modeMP3;
 					break;
 				case 7:
-					//return modeMP3;
+					sms();
 					break;
 				case 8:
 					return modeMP3;

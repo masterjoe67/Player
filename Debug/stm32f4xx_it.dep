@@ -49,4 +49,6 @@ Debug/stm32f4xx_it.o: Src/stm32f4xx_it.c Inc/stm32f4xx_it.h \
  lib/ILI9341/fonts/glcdfont.h lib/xpt2046-touch/xpt2046.h \
  lib/ILI9341/fonts/fonts.h lib/ILI9341/fonts/FreeMono9pt7b.h \
  lib/ILI9341/fonts/FreeMono12pt7b.h lib/ILI9341/fonts/FreeMono24pt7b.h \
- lib/ILI9341/fonts/FreeMonoBold18pt7b.h Inc/attributes.h
+ lib/ILI9341/fonts/FreeMonoBold12pt7b.h \
+ lib/ILI9341/fonts/FreeMonoBold18pt7b.h lib/lcdButton/lcdButton.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\math.h Inc/attributes.h

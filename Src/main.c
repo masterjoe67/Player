@@ -31,6 +31,7 @@ int x, y;
 
 
 int main(void) {
+	system_initialized = false;
 	touch_irq = 0;
 	hwInit();
 
@@ -65,7 +66,7 @@ int main(void) {
 	phoneInit();
 	
 	
-	Delayms(5000);
+	//Delayms(5000);
 
 	
 	xpt2046_init();
@@ -73,7 +74,7 @@ int main(void) {
 	//ts_calibrate(X_SIZE, Y_SIZE);
 
 
-	
+	system_initialized = true;
 	
 	
 	while (1)
@@ -90,8 +91,14 @@ int main(void) {
 		case modePaint:
 			paint();
 			break;
+		case modeCall:
+			phone_call();
+			//__enable_irq();
+			BG_EnableBGTimer();
+			break;
 		case modeMP3:
 			mediaplayer();
+			__enable_irq();
 			break;
 		}
 	}

@@ -15,6 +15,7 @@
 #define modeMP3		4
 #define modeMP3sel	5
 #define modeCalc	6
+#define modeCall    7
 
 #define btn_pgup_ret		0x20
 #define btn_pgdown_ret		0x21
@@ -46,3 +47,6 @@ FRESULT slideshow();
 //FRESULT IndexFileNames();
 int getButtonNumber(int xInput, int yInput);
 void battery_helper();
+void rssi_helper();
+void provider_helper(uint8_t status);
+void GSM_helper();

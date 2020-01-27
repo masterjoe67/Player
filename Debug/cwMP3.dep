@@ -66,4 +66,6 @@ Debug/cwMP3.o: Src/cwMP3.c \
  lib/xpt2046-touch/xpt2046.h lib/ILI9341/fonts/fonts.h \
  lib/ILI9341/fonts/FreeMono9pt7b.h lib/ILI9341/fonts/FreeMono12pt7b.h \
  lib/ILI9341/fonts/FreeMono24pt7b.h \
- lib/ILI9341/fonts/FreeMonoBold18pt7b.h
+ lib/ILI9341/fonts/FreeMonoBold12pt7b.h \
+ lib/ILI9341/fonts/FreeMonoBold18pt7b.h lib/lcdButton/lcdButton.h \
+ c:\sysgcc\arm-eabi\arm-eabi\sys-include\math.h

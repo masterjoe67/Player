@@ -166,6 +166,7 @@ __STATIC_INLINE void Delayms(uint32_t millis) {
 	volatile uint32_t timer = TM_Time;
 
 	/* Wait for timer to count milliseconds */
+
 	while ((TM_Time - timer) < millis);
 }
 

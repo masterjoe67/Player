@@ -232,6 +232,17 @@ void LCD_writeString(unsigned char *s)
 		LCD_write(*s++);
 }
 
+void LCD_setCursorX(u16 x)
+{
+	cursorX = x;
+}
+
+void LCD_setCursorY(u16 y)
+{
+	cursorY = y;
+}
+
+
 void LCD_setCursor(u16 x, u16 y)
 {
 	cursorX = x;
